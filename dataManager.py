@@ -62,16 +62,31 @@ count = 0
 
 #Check for both of these issues
 for i in playerYears.keys():
+    maxRushYear = 0
+    minRushYear = 0
+    maxRecYear = 0
+    minRecYear = 0
     bad = False
     prev = None
     prevType = None
     for j in playerYears[i]:
         #If it isn't the first entry for this player, either a year is skipped or both a year is repeated and type stays the same
-        if prev != None and (j[0] - 1 > prev or (j[0] == prev and j[1] == prevType)):
+        if prev != None and j[1] == prevType and (j[0] + 1 < prev or j[0] == prev):
             bad = True
             break
         prev = j[0]
         prevType = j[1]
+        if j[1] == 'Rushing':
+            if maxRushYear == 0:
+                maxRushYear = j[0]
+            minRushYear = j[0]
+        else:
+            if maxRecYear == 0:
+                maxRecYear = j[0]
+            minRecYear = j[0]
+        
+    if minRushYear > maxRecYear or minRecYear > maxRushYear:
+        bad = True
 
     #Print out all of the "bad" players and what number they are:
     if bad == True:
