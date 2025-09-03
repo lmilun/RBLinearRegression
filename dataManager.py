@@ -9,8 +9,8 @@ rawData = pd.read_csv("rawData.csv", header = 0, names = headers, low_memory=Fal
 #Beginning process of cleaning data by finding all duplicate names
 playerYears = {}
 
-#Iterates through all years post 2000
-for i in rawData[rawData['Year'] >= 2000].values:
+
+for i in rawData.values:
     #Adds this player's season to playerYears
     if i[3] in playerYears.keys():
         #Rushing and receiving are separate
@@ -19,7 +19,8 @@ for i in rawData[rawData['Year'] >= 2000].values:
             playerYears[i[3]].append([i[1], i[0], i[9]])
         else:
             playerYears[i[3]].append([i[1], i[0], i[10]])
-    else:
+    #Only add players if they were active post-2000
+    elif i[1] >= 2000:
         if i[0] == 'Rushing':
             playerYears[i[3]] = [[i[1], i[0], i[9]]]
         else:
@@ -60,6 +61,9 @@ for i in toPop:
 
 count = 0
 
+with open("problemNames.txt", "w") as file:
+    pass
+
 #Check for both of these issues
 for i in playerYears.keys():
     maxRushYear = 0
@@ -69,11 +73,16 @@ for i in playerYears.keys():
     bad = False
     prev = None
     prevType = None
+    issues = []
     for j in playerYears[i]:
         #If it isn't the first entry for this player, either a year is skipped or both a year is repeated and type stays the same
-        if prev != None and j[1] == prevType and (j[0] + 1 < prev or j[0] == prev):
-            bad = True
-            break
+        if prev != None and j[1] == prevType:
+            if j[0] + 1 < prev:
+                bad = True
+                issues.append(f'Skipped a year {j[0]} {j[1]}')
+            if j[0] == prev:
+                issues.append(f'Repeated a year {j[0]} {j[1]}')
+                bad = True
         prev = j[0]
         prevType = j[1]
         if j[1] == 'Rushing':
@@ -86,9 +95,11 @@ for i in playerYears.keys():
             minRecYear = j[0]
         
     if minRushYear > maxRecYear or minRecYear > maxRushYear:
+        issues.append('Rush and Rec are offset')
         bad = True
 
     #Print out all of the "bad" players and what number they are:
     if bad == True:
         count += 1
-        print(f'{count}\t {i}: {playerYears[i]}')
+        with open("problemNames.txt", "a") as file:
+            file.write(f'{count}\t {i}: \n\t\t{playerYears[i]} \n\t\t {issues}\n\n')
