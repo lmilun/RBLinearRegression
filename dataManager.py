@@ -102,4 +102,4 @@ for i in playerYears.keys():
     if bad == True:
         count += 1
         with open("problemNames.txt", "a") as file:
-            file.write(f'{count}\t {i}: \n\t\t{playerYears[i]} \n\t\t {issues}\n\n')
+            file.write(f'{count}. {i}: \n\t{playerYears[i]} \n\t {issues}\n\n')

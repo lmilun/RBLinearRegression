@@ -1,72 +1,400 @@
-1        J.K. Dobbins: [[2024, 'Rushing', 195], [2023, 'Rushing', 8], [2022, 'Rushing', 92], [2020, 'Rushing', 134], [2024, 'Receiving', 32], [2023, 'Receiving', 2], [2022, 'Receiving', 7], [2020, 'Receiving', 18]]
-2        Joshua Dobbs: [[2024, 'Rushing', 9], [2023, 'Rushing', 77], [2022, 'Rushing', 8], [2020, 'Rushing', 2], [2018, 'Rushing', 4], [2024, 'Receiving', 0], [2023, 'Receiving', 0], [2022, 'Receiving', 0], [2020, 'Receiving', 0], [2018, 'Receiving', 0]]
-3        Rico Dowdle: [[2024, 'Rushing', 235], [2023, 'Rushing', 89], [2020, 'Rushing', 7], [2024, 'Receiving', 39], [2023, 'Receiving', 17], [2020, 'Receiving', 0]]
-4        Gus Edwards: [[2024, 'Rushing', 101], [2023, 'Rushing', 198], [2022, 'Rushing', 87], [2020, 'Rushing', 144], [2019, 'Rushing', 133], [2018, 'Rushing', 137], [2024, 'Receiving', 3], [2023, 'Receiving', 12], [2022, 'Receiving', 0], [2020, 'Receiving', 9], [2019, 'Receiving', 7], [2018, 'Receiving', 2]]
-5        D'Onta Foreman: [[2024, 'Rushing', 71], [2023, 'Rushing', 109], [2022, 'Rushing', 203], [2021, 'Rushing', 133], [2020, 'Rushing', 22], [2018, 'Rushing', 7], [2017, 'Rushing', 78], [2024, 'Receiving', 6], [2023, 'Receiving', 11], [2022, 'Receiving', 5], [2021, 'Receiving', 9], [2020, 'Receiving', 1], [2018, 'Receiving', 2], [2017, 'Receiving', 6]]
-6        Myles Gaskin: [[2024, 'Rushing', 3], [2022, 'Rushing', 10], [2021, 'Rushing', 173], [2020, 'Rushing', 142], [2019, 'Rushing', 36], [2024, 'Receiving', 1], [2022, 'Receiving', 4], [2021, 'Receiving', 49], [2020, 'Receiving', 41], [2019, 'Receiving', 7]]
-7        Justice Hill: [[2024, 'Rushing', 47], [2023, 'Rushing', 84], [2022, 'Rushing', 49], [2020, 'Rushing', 12], [2019, 'Rushing', 58], [2024, 'Receiving', 42], [2023, 'Receiving', 28], [2022, 'Receiving', 12], [2020, 'Receiving', 5], [2019, 'Receiving', 8]]
-8        Deshaun Watson: [[2024, 'Rushing', 31], [2023, 'Rushing', 26], [2022, 'Rushing', 36], [2020, 'Rushing', 90], [2019, 'Rushing', 82], [2018, 'Rushing', 99], [2017, 'Rushing', 36], [2024, 'Receiving', 0], [2023, 'Receiving', 0], [2022, 'Receiving', 0], [2020, 'Receiving', 0], [2019, 'Receiving', 1], [2018, 'Receiving', 0], [2017, 'Receiving', 0]]
-9        Brandon Bolden: [[2023, 'Rushing', 4], [2022, 'Rushing', 17], [2021, 'Rushing', 44], [2019, 'Rushing', 15], [2018, 'Rushing', 8], [2017, 'Rushing', 13], [2016, 'Rushing', 1], [2015, 'Rushing', 63], [2014, 'Rushing', 28], [2013, 'Rushing', 55], [2012, 'Rushing', 56], [2023, 'Receiving', 0], [2022, 'Receiving', 9], [2021, 'Receiving', 41], [2019, 'Receiving', 9], [2018, 'Receiving', 3], [2017, 'Receiving', 1], [2016, 'Receiving', 2], [2015, 'Receiving', 19], [2014, 'Receiving', 2], [2013, 'Receiving', 21], [2012, 'Receiving', 2]]
-10       Jerick McKinnon: [[2023, 'Rushing', 21], [2022, 'Rushing', 72], [2021, 'Rushing', 12], [2020, 'Rushing', 81], [2017, 'Rushing', 150], [2016, 'Rushing', 159], [2015, 'Rushing', 52], [2014, 'Rushing', 113], [2023, 'Receiving', 25], [2022, 'Receiving', 56], [2021, 'Receiving', 13], [2020, 'Receiving', 33], [2017, 'Receiving', 51], [2016, 'Receiving', 43], [2015, 'Receiving', 21], [2014, 'Receiving', 27]]
-11       La'Mical Perine: [[2023, 'Rushing', 22], [2021, 'Rushing', 8], [2020, 'Rushing', 64], [2023, 'Receiving', 3], [2021, 'Receiving', 0], [2020, 'Receiving', 11]]
-12       Damien Williams: [[2023, 'Rushing', 11], [2022, 'Rushing', 2], [2021, 'Rushing', 40], [2019, 'Rushing', 111], [2018, 'Rushing', 50], [2017, 'Rushing', 46], [2016, 'Rushing', 35], [2015, 'Rushing', 16], [2014, 'Rushing', 36], [2023, 'Receiving', 2], [2022, 'Receiving', 0], [2021, 'Receiving', 16], [2019, 'Receiving', 30], [2018, 'Receiving', 23], [2017, 'Receiving', 20], [2016, 'Receiving', 23], [2015, 'Receiving', 21], [2014, 'Receiving', 21]]
-13       Corey Clement: [[2022, 'Rushing', 15], [2021, 'Rushing', 33], [2020, 'Rushing', 21], [2018, 'Rushing', 68], [2017, 'Rushing', 74], [2022, 'Receiving', 5], [2021, 'Receiving', 6], [2020, 'Receiving', 5], [2018, 'Receiving', 22], [2017, 'Receiving', 10]]
-14       David Johnson: [[2022, 'Rushing', 12], [2021, 'Rushing', 67], [2020, 'Rushing', 147], [2019, 'Rushing', 94], [2018, 'Rushing', 258], [2017, 'Rushing', 11], [2016, 'Rushing', 0], [2016, 'Rushing', 293], [2015, 'Rushing', 2], [2015, 'Rushing', 125], [2014, 'Rushing', 0], [2013, 'Rushing', 0], [2011, 'Rushing', 0], [2010, 'Rushing', 0], [2009, 'Rushing', 0], [2022, 'Receiving', 4], [2021, 'Receiving', 32], [2020, 'Receiving', 33], [2019, 'Receiving', 36], [2018, 'Receiving', 50], [2017, 'Receiving', 6], [2016, 'Receiving', 7], [2016, 'Receiving', 80], [2015, 'Receiving', 1], [2015, 'Receiving', 36], [2014, 'Receiving', 1], [2013, 'Receiving', 4], [2011, 'Receiving', 12], [2010, 'Receiving', 4], [2009, 'Receiving', 2]]
-15       Jordan Wilkins: [[2022, 'Rushing', 13], [2020, 'Rushing', 84], [2019, 'Rushing', 51], [2018, 'Rushing', 60], [2022, 'Receiving', 6], [2020, 'Receiving', 12], [2019, 'Receiving', 7], [2018, 'Receiving', 16]]
-16       Le'Veon Bell: [[2021, 'Rushing', 39], [2020, 'Rushing', 82], [2019, 'Rushing', 245], [2017, 'Rushing', 321], [2016, 'Rushing', 261], [2015, 'Rushing', 113], [2014, 'Rushing', 290], [2013, 'Rushing', 244], [2021, 'Receiving', 5], [2020, 'Receiving', 16], [2019, 'Receiving', 66], [2017, 'Receiving', 85], [2016, 'Receiving', 75], [2015, 'Receiving', 24], [2014, 'Receiving', 83], [2013, 'Receiving', 45]]
-17       Alex Collins: [[2021, 'Rushing', 108], [2020, 'Rushing', 18], [2018, 'Rushing', 114], [2017, 'Rushing', 212], [2016, 'Rushing', 31], [2021, 'Receiving', 9], [2020, 'Receiving', 1], [2018, 'Receiving', 15], [2017, 'Receiving', 23], [2016, 'Receiving', 11]]
-18       Adrian Peterson: [[2021, 'Rushing', 38], [2020, 'Rushing', 156], [2019, 'Rushing', 211], [2018, 'Rushing', 251], [2017, 'Rushing', 156], [2016, 'Rushing', 37], [2015, 'Rushing', 327], [2014, 'Rushing', 21], [2013, 'Rushing', 279], [2012, 'Rushing', 348], [2011, 'Rushing', 208], [2010, 'Rushing', 283], [2009, 'Rushing', 7], [2009, 'Rushing', 314], [2008, 'Rushing', 20], [2008, 'Rushing', 363], [2007, 'Rushing', 151], [2007, 'Rushing', 238], [2006, 'Rushing', 10], [2005, 'Rushing', 76], [2004, 'Rushing', 6], [2003, 'Rushing', 22], [2002, 'Rushing', 19], [2021, 'Receiving', 4], [2020, 'Receiving', 12], [2019, 'Receiving', 17], [2018, 'Receiving', 20], [2017, 'Receiving', 11], [2016, 'Receiving', 3], [2015, 'Receiving', 30], [2014, 'Receiving', 2], [2013, 'Receiving', 29], [2012, 'Receiving', 40], [2011, 'Receiving', 18], [2010, 'Receiving', 36], [2009, 'Receiving', 2], [2009, 'Receiving', 43], [2008, 'Receiving', 6], [2008, 'Receiving', 21], [2007, 'Receiving', 51], [2007, 'Receiving', 19], [2006, 'Receiving', 6], [2005, 'Receiving', 7], [2004, 'Receiving', 2], [2003, 'Receiving', 1], [2002, 'Receiving', 3]]
-19       Wendell Smallwood: [[2021, 'Rushing', 5], [2019, 'Rushing', 22], [2018, 'Rushing', 87], [2017, 'Rushing', 47], [2016, 'Rushing', 77], [2021, 'Receiving', 4], [2019, 'Receiving', 9], [2018, 'Receiving', 28], [2017, 'Receiving', 13], [2016, 'Receiving', 6]]
-20       Robert Griffin III: [[2020, 'Rushing', 12], [2019, 'Rushing', 20], [2016, 'Rushing', 31], [2014, 'Rushing', 38], [2013, 'Rushing', 86], [2012, 'Rushing', 120], [2020, 'Receiving', 0], [2019, 'Receiving', 0], [2016, 'Receiving', 0], [2014, 'Receiving', 0], [2013, 'Receiving', 0], [2012, 'Receiving', 0]]
-21       Dion Lewis: [[2020, 'Rushing', 29], [2019, 'Rushing', 54], [2018, 'Rushing', 155], [2017, 'Rushing', 180], [2016, 'Rushing', 64], [2015, 'Rushing', 49], [2012, 'Rushing', 13], [2011, 'Rushing', 23], [2020, 'Receiving', 19], [2019, 'Receiving', 25], [2018, 'Receiving', 59], [2017, 'Receiving', 32], [2016, 'Receiving', 17], [2015, 'Receiving', 36], [2012, 'Receiving', 2], [2011, 'Receiving', 1]]
-22       Lamar Miller: [[2020, 'Rushing', 0], [2018, 'Rushing', 210], [2017, 'Rushing', 238], [2016, 'Rushing', 268], [2015, 'Rushing', 194], [2014, 'Rushing', 216], [2013, 'Rushing', 177], [2012, 'Rushing', 51], [2020, 'Receiving', 2], [2018, 'Receiving', 25], [2017, 'Receiving', 36], [2016, 'Receiving', 31], [2015, 'Receiving', 47], [2014, 'Receiving', 38], [2013, 'Receiving', 26], [2012, 'Receiving', 6]]
-23       Theo Riddick: [[2020, 'Rushing', 6], [2018, 'Rushing', 40], [2017, 'Rushing', 84], [2016, 'Rushing', 92], [2015, 'Rushing', 43], [2014, 'Rushing', 20], [2013, 'Rushing', 9], [2020, 'Receiving', 5], [2018, 'Receiving', 61], [2017, 'Receiving', 53], [2016, 'Receiving', 53], [2015, 'Receiving', 80], [2014, 'Receiving', 34], [2013, 'Receiving', 4]]
-24       Alex Smith: [[2020, 'Rushing', 10], [2018, 'Rushing', 41], [2017, 'Rushing', 60], [2016, 'Rushing', 48], [2015, 'Rushing', 0], [2015, 'Rushing', 84], [2014, 'Rushing', 49], [2013, 'Rushing', 0], [2013, 'Rushing', 76], [2012, 'Rushing', 0], [2012, 
-'Rushing', 31], [2011, 'Rushing', 0], [2011, 'Rushing', 52], [2010, 'Rushing', 0], [2010, 'Rushing', 18], [2009, 'Rushing', 0], [2009, 'Rushing', 24], [2008, 'Rushing', 0], [2007, 'Rushing', 0], [2007, 'Rushing', 13], [2006, 'Rushing', 0], [2006, 'Rushing', 44], [2005, 'Rushing', 0], [2005, 'Rushing', 30], [2020, 'Receiving', 0], [2018, 'Receiving', 0], [2017, 'Receiving', 0], [2016, 'Receiving', 1], [2015, 'Receiving', 0], [2015, 'Receiving', 0], [2014, 'Receiving', 0], [2013, 'Receiving', 3], [2013, 'Receiving', 1], [2012, 'Receiving', 13], [2012, 'Receiving', 0], [2011, 'Receiving', 14], [2011, 'Receiving', 0], [2010, 'Receiving', 1], [2010, 'Receiving', 0], [2009, 'Receiving', 3], [2009, 'Receiving', 1], [2008, 'Receiving', 21], [2007, 'Receiving', 32], 
-[2007, 'Receiving', 0], [2006, 'Receiving', 35], [2006, 'Receiving', 0], [2005, 'Receiving', 41], [2005, 'Receiving', 0]]
-25       Chris Thompson: [[2020, 'Rushing', 7], [2019, 'Rushing', 37], [2018, 'Rushing', 43], [2017, 'Rushing', 64], [2017, 'Rushing', 0], [2016, 'Rushing', 68], [2015, 'Rushing', 35], [2014, 'Rushing', 3], [2020, 'Receiving', 20], [2019, 'Receiving', 42], [2018, 'Receiving', 41], [2017, 'Receiving', 39], [2017, 'Receiving', 5], [2016, 'Receiving', 49], [2015, 'Receiving', 35], [2014, 'Receiving', 6]]
-26       Ryan Grant: [[2019, 'Rushing', 0], [2018, 'Rushing', 0], [2017, 'Rushing', 0], [2016, 'Rushing', 0], [2015, 'Rushing', 0], [2014, 'Rushing', 0], [2012, 'Rushing', 32], [2011, 'Rushing', 134], [2010, 'Rushing', 8], [2009, 'Rushing', 282], [2008, 'Rushing', 312], [2007, 'Rushing', 188], [2019, 'Receiving', 4], [2018, 'Receiving', 35], [2017, 'Receiving', 45], [2016, 'Receiving', 9], [2015, 'Receiving', 23], [2014, 'Receiving', 7], [2012, 'Receiving', 1], [2011, 'Receiving', 19], [2010, 'Receiving', 0], [2009, 'Receiving', 25], [2008, 'Receiving', 18], [2007, 'Receiving', 30]]
-27       Marshawn Lynch: [[2019, 'Rushing', 12], [2018, 'Rushing', 90], [2017, 'Rushing', 207], [2015, 'Rushing', 111], [2014, 'Rushing', 280], [2013, 'Rushing', 301], [2012, 'Rushing', 315], [2011, 'Rushing', 285], [2010, 'Rushing', 202], [2009, 'Rushing', 120], [2008, 'Rushing', 250], [2007, 'Rushing', 280], [2019, 'Receiving', 0], [2018, 'Receiving', 15], [2017, 'Receiving', 20], [2015, 'Receiving', 13], [2014, 'Receiving', 37], [2013, 'Receiving', 36], [2012, 'Receiving', 23], [2011, 'Receiving', 28], [2010, 'Receiving', 22], [2009, 'Receiving', 28], [2008, 'Receiving', 47], [2007, 'Receiving', 18]]
-28       Paul Perkins: [[2019, 'Rushing', 12], [2017, 'Rushing', 41], [2016, 'Rushing', 112], [2019, 'Receiving', 1], [2017, 'Receiving', 8], [2016, 'Receiving', 15]]
-29       Darren Sproles: [[2019, 'Rushing', 17], [2018, 'Rushing', 29], [2017, 'Rushing', 15], [2016, 'Rushing', 94], [2015, 'Rushing', 83], [2014, 'Rushing', 57], [2013, 'Rushing', 53], [2012, 'Rushing', 48], [2011, 'Rushing', 87], [2010, 'Rushing', 50], 
-[2009, 'Rushing', 93], [2008, 'Rushing', 61], [2007, 'Rushing', 37], [2005, 'Rushing', 8], [2019, 'Receiving', 6], [2018, 'Receiving', 15], [2017, 'Receiving', 7], [2016, 'Receiving', 52], [2015, 'Receiving', 55], [2014, 'Receiving', 40], [2013, 'Receiving', 71], [2012, 'Receiving', 75], [2011, 'Receiving', 86], [2010, 'Receiving', 59], [2009, 'Receiving', 45], [2008, 'Receiving', 29], [2007, 'Receiving', 10], [2005, 'Receiving', 3]]
-30       Spencer Ware: [[2019, 'Rushing', 17], [2018, 'Rushing', 51], [2016, 'Rushing', 214], [2015, 'Rushing', 72], [2013, 'Rushing', 3], [2019, 'Receiving', 5], [2018, 'Receiving', 20], [2016, 'Receiving', 33], [2015, 'Receiving', 6], [2013, 'Receiving', 0]]
-31       Kenneth Dixon: [[2018, 'Rushing', 60], [2016, 'Rushing', 88], [2018, 'Receiving', 6], [2016, 'Receiving', 30]]
-32       Mike Gillislee: [[2018, 'Rushing', 16], [2017, 'Rushing', 104], [2016, 'Rushing', 101], [2015, 'Rushing', 47], [2013, 'Rushing', 6], [2018, 'Receiving', 1], [2017, 'Receiving', 1], [2016, 'Receiving', 9], [2015, 'Receiving', 6], [2013, 'Receiving', 0]]
-33       Jeremy Langford: [[2018, 'Rushing', 9], [2016, 'Rushing', 62], [2015, 'Rushing', 148], [2018, 'Receiving', 0], [2016, 'Receiving', 19], [2015, 'Receiving', 22]]
-34       Christine Michael: [[2018, 'Rushing', 2], [2016, 'Rushing', 148], [2015, 'Rushing', 54], [2014, 'Rushing', 34], [2013, 'Rushing', 18], [2018, 'Receiving', 0], [2016, 'Receiving', 22], [2015, 'Receiving', 3], [2014, 'Receiving', 1], [2013, 'Receiving', 0]]
-35       Terrelle Pryor: [[2018, 'Rushing', 1], [2017, 'Rushing', 0], [2016, 'Rushing', 8], [2015, 'Rushing', 1], [2013, 'Rushing', 83], [2012, 'Rushing', 10], [2018, 'Receiving', 16], [2017, 'Receiving', 20], [2016, 'Receiving', 77], [2015, 'Receiving', 1], [2013, 'Receiving', 0], [2012, 'Receiving', 1]]
-36       Matt Jones: [[2017, 'Rushing', 5], [2016, 'Rushing', 99], [2015, 'Rushing', 144], [2008, 'Rushing', 0], [2007, 'Rushing', 0], [2006, 'Rushing', 2], [2005, 'Rushing', 12], [2017, 'Receiving', 0], [2016, 'Receiving', 8], [2015, 'Receiving', 19], [2008, 'Receiving', 65], [2007, 'Receiving', 24], [2006, 'Receiving', 41], [2005, 'Receiving', 36]]
-37       Branden Oliver: [[2017, 'Rushing', 35], [2015, 'Rushing', 31], [2014, 'Rushing', 160], [2017, 'Receiving', 6], [2015, 'Receiving', 13], [2014, 'Receiving', 36]]
-38       Tim Hightower: [[2016, 'Rushing', 133], [2015, 'Rushing', 96], [2011, 'Rushing', 84], [2010, 'Rushing', 153], [2009, 'Rushing', 143], [2008, 'Rushing', 143], [2016, 'Receiving', 22], [2015, 'Receiving', 12], [2011, 'Receiving', 10], [2010, 'Receiving', 21], [2009, 'Receiving', 63], [2008, 'Receiving', 34]]
-39       Rashad Jennings: [[2016, 'Rushing', 181], [2015, 'Rushing', 195], [2014, 'Rushing', 167], [2013, 'Rushing', 163], [2012, 'Rushing', 101], [2010, 'Rushing', 84], [2009, 'Rushing', 39], [2016, 'Receiving', 35], [2015, 'Receiving', 29], [2014, 'Receiving', 30], [2013, 'Receiving', 36], [2012, 'Receiving', 19], [2010, 'Receiving', 26], [2009, 'Receiving', 16]]
-40       Daryl Richardson: [[2016, 'Rushing', 2], [2013, 'Rushing', 69], [2012, 'Rushing', 98], [2016, 'Receiving', 0], [2013, 'Receiving', 14], [2012, 'Receiving', 24]]
-41       Kendall Hunter: [[2015, 'Rushing', 1], [2013, 'Rushing', 78], [2012, 'Rushing', 72], [2011, 'Rushing', 112], [2015, 'Receiving', 0], [2013, 'Receiving', 2], [2012, 'Receiving', 9], [2011, 'Receiving', 16]]
-42       Kevin Smith: [[2015, 'Rushing', 0], [2012, 'Rushing', 37], [2011, 'Rushing', 72], [2010, 'Rushing', 34], [2009, 'Rushing', 217], [2008, 'Rushing', 238], [2015, 'Receiving', 3], [2012, 'Receiving', 10], [2011, 'Receiving', 22], [2010, 'Receiving', 
-11], [2009, 'Receiving', 41], [2008, 'Receiving', 39]]
-43       Michael Vick: [[2015, 'Rushing', 20], [2014, 'Rushing', 26], [2013, 'Rushing', 36], [2012, 'Rushing', 62], [2011, 'Rushing', 76], [2010, 'Rushing', 100], [2009, 'Rushing', 24], [2006, 'Rushing', 123], [2005, 'Rushing', 102], [2004, 'Rushing', 120], [2003, 'Rushing', 40], [2002, 'Rushing', 113], [2001, 'Rushing', 31], [2015, 'Receiving', 0], [2014, 'Receiving', 0], [2013, 'Receiving', 0], [2012, 'Receiving', 0], [2011, 'Receiving', 0], [2010, 'Receiving', 0], [2009, 'Receiving', 0], [2006, 'Receiving', 1], [2005, 'Receiving', 1], [2004, 'Receiving', 0], [2003, 'Receiving', 0], [2002, 'Receiving', 0], [2001, 'Receiving', 0]]
-44       Chris Ogbonnaya: [[2014, 'Rushing', 14], [2013, 'Rushing', 49], [2012, 'Rushing', 8], [2011, 'Rushing', 76], [2009, 'Rushing', 11], [2014, 'Receiving', 0], [2013, 'Receiving', 48], [2012, 'Receiving', 24], [2011, 'Receiving', 23], [2009, 'Receiving', 1]]
-45       Andre Brown: [[2013, 'Rushing', 139], [2012, 'Rushing', 73], [2010, 'Rushing', 2], [2013, 'Receiving', 20], [2012, 'Receiving', 12], [2010, 'Receiving', 0]]
-46       Greg Jones: [[2013, 'Rushing', 2], [2012, 'Rushing', 5], [2011, 'Rushing', 2], [2010, 'Rushing', 2], [2009, 'Rushing', 4], [2008, 'Rushing', 2], [2007, 'Rushing', 42], [2005, 'Rushing', 151], [2004, 'Rushing', 62], [2013, 'Receiving', 5], [2012, 'Receiving', 11], [2011, 'Receiving', 4], [2010, 'Receiving', 11], [2009, 'Receiving', 5], [2008, 'Receiving', 13], [2007, 'Receiving', 11], [2005, 'Receiving', 10], [2004, 'Receiving', 3]]
-47       Deji Karim: [[2013, 'Rushing', 12], [2011, 'Rushing', 63], [2010, 'Rushing', 35], [2013, 'Receiving', 1], [2011, 'Receiving', 14], [2010, 'Receiving', 3]]
-48       Lance Ball: [[2012, 'Rushing', 42], [2011, 'Rushing', 96], [2010, 'Rushing', 41], [2008, 'Rushing', 13], [2012, 'Receiving', 7], [2011, 'Receiving', 16], [2010, 'Receiving', 3], [2008, 'Receiving', 1]]
-49       Kahlil Bell: [[2012, 'Rushing', 29], [2011, 'Rushing', 79], [2009, 'Rushing', 40], [2012, 'Receiving', 2], [2011, 'Receiving', 19], [2009, 'Receiving', 1]]
-50       Brandon Jackson: [[2012, 'Rushing', 8], [2010, 'Rushing', 190], [2009, 'Rushing', 37], [2008, 'Rushing', 45], [2007, 'Rushing', 75], [2012, 'Receiving', 2], [2010, 'Receiving', 43], [2009, 'Receiving', 21], [2008, 'Receiving', 30], [2007, 'Receiving', 16]]
-51       Ryan Torain: [[2011, 'Rushing', 59], [2010, 'Rushing', 164], [2008, 'Rushing', 15], [2011, 'Receiving', 6], [2010, 'Receiving', 18], [2008, 'Receiving', 0]]
-52       Derrick Ward: [[2011, 'Rushing', 45], [2010, 'Rushing', 50], [2009, 'Rushing', 114], [2008, 'Rushing', 182], [2007, 'Rushing', 125], [2005, 'Rushing', 35], [2011, 'Receiving', 0], [2010, 'Receiving', 7], [2009, 'Receiving', 20], [2008, 'Receiving', 41], [2007, 'Receiving', 26], [2005, 'Receiving', 2]]
-53       Ricky Williams: [[2011, 'Rushing', 108], [2010, 'Rushing', 159], [2009, 'Rushing', 241], [2008, 'Rushing', 160], [2007, 'Rushing', 6], [2005, 'Rushing', 168], [2003, 'Rushing', 392], [2003, 'Rushing', 48], [2002, 'Rushing', 383], [2002, 'Rushing', 11], [2001, 'Rushing', 313], [2000, 'Rushing', 248], [2011, 'Receiving', 13], [2010, 'Receiving', 19], [2009, 'Receiving', 35], [2008, 'Receiving', 29], [2007, 'Receiving', 0], [2005, 'Receiving', 17], [2003, 'Receiving', 50], [2003, 'Receiving', 22], [2002, 'Receiving', 47], [2002, 'Receiving', 1], [2001, 'Receiving', 60], [2000, 'Receiving', 44]]
-54       Correll Buckhalter: [[2010, 'Rushing', 59], [2009, 'Rushing', 120], [2008, 'Rushing', 76], [2007, 'Rushing', 62], [2006, 'Rushing', 83], [2003, 'Rushing', 126], [2001, 'Rushing', 129], [2010, 'Receiving', 28], [2009, 'Receiving', 31], [2008, 'Receiving', 26], [2007, 'Receiving', 12], [2006, 'Receiving', 24], [2003, 'Receiving', 10], [2001, 'Receiving', 13]]
-55       David Garrard: [[2010, 'Rushing', 66], [2009, 'Rushing', 77], [2008, 'Rushing', 73], [2007, 'Rushing', 49], [2006, 'Rushing', 47], [2005, 'Rushing', 31], [2004, 'Rushing', 12], [2002, 'Rushing', 25], [2010, 'Receiving', 0], [2009, 'Receiving', 0], [2008, 'Receiving', 1], [2007, 'Receiving', 0], [2006, 'Receiving', 0], [2005, 'Receiving', 0], [2004, 'Receiving', 0], [2002, 'Receiving', 0]]
-56       Dominic Rhodes: [[2010, 'Rushing', 37], [2008, 'Rushing', 152], [2007, 'Rushing', 75], [2006, 'Rushing', 187], [2005, 'Rushing', 40], [2004, 'Rushing', 53], [2003, 'Rushing', 37], [2001, 'Rushing', 233], [2010, 'Receiving', 1], [2008, 'Receiving', 45], [2007, 'Receiving', 11], [2006, 'Receiving', 36], [2005, 'Receiving', 12], [2004, 'Receiving', 2], [2003, 'Receiving', 6], [2001, 'Receiving', 34]]
-57       Leonard Weaver: [[2010, 'Rushing', 1], [2009, 'Rushing', 70], [2008, 'Rushing', 30], [2007, 'Rushing', 33], [2005, 'Rushing', 17], [2010, 'Receiving', 0], [2009, 'Receiving', 15], [2008, 'Receiving', 20], [2007, 'Receiving', 39], [2005, 'Receiving', 1]]
-58       Chris Brown: [[2009, 'Rushing', 79], [2007, 'Rushing', 102], [2006, 'Rushing', 41], [2005, 'Rushing', 224], [2004, 'Rushing', 220], [2003, 'Rushing', 56], [2009, 'Receiving', 16], [2007, 'Receiving', 19], [2006, 'Receiving', 2], [2005, 'Receiving', 25], [2004, 'Receiving', 20], [2003, 'Receiving', 8]]
-59       Verron Haynes: [[2009, 'Rushing', 0], [2007, 'Rushing', 0], [2006, 'Rushing', 15], [2005, 'Rushing', 74], [2004, 'Rushing', 55], [2003, 'Rushing', 20], [2002, 'Rushing', 10], [2009, 'Receiving', 3], [2007, 'Receiving', 1], [2006, 'Receiving', 18], [2005, 'Receiving', 11], [2004, 'Receiving', 18], [2003, 'Receiving', 7], [2002, 'Receiving', 3]]
-60       Jamal Lewis: [[2009, 'Rushing', 143], [2008, 'Rushing', 279], [2007, 'Rushing', 298], [2006, 'Rushing', 314], [2005, 'Rushing', 269], [2004, 'Rushing', 235], [2003, 'Rushing', 387], [2002, 'Rushing', 308], [2000, 'Rushing', 309], [2009, 'Receiving', 8], [2008, 'Receiving', 23], [2007, 'Receiving', 30], [2006, 'Receiving', 18], [2005, 'Receiving', 32], [2004, 'Receiving', 10], [2003, 'Receiving', 26], [2002, 'Receiving', 47], [2000, 'Receiving', 27]]
-61       Ryan Moats: [[2009, 'Rushing', 101], [2008, 'Rushing', 26], [2006, 'Rushing', 22], [2005, 'Rushing', 55], [2009, 'Receiving', 13], [2008, 'Receiving', 3], [2006, 'Receiving', 0], [2005, 'Receiving', 4]]
-62       Jesse Chatman: [[2008, 'Rushing', 5], [2007, 'Rushing', 128], [2004, 'Rushing', 65], [2003, 'Rushing', 8], [2002, 'Rushing', 6], [2008, 'Receiving', 2], [2007, 'Receiving', 27], [2004, 'Receiving', 2], [2003, 'Receiving', 5], [2002, 'Receiving', 363       Nick Goings: [[2008, 'Rushing', 9], [2006, 'Rushing', 11], [2005, 'Rushing', 37], [2004, 'Rushing', 217], [2003, 'Rushing', 10], [2002, 'Rushing', 50], [2001, 'Rushing', 66], [2008, 'Receiving', 3], [2006, 'Receiving', 10], [2005, 'Receiving', 14], [2004, 'Receiving', 45], [2003, 'Receiving', 12], [2002, 'Receiving', 18], [2001, 'Receiving', 8]]
-64       Chris Perry: [[2008, 'Rushing', 104], [2006, 'Rushing', 10], [2005, 'Rushing', 61], [2004, 'Rushing', 2], [2008, 'Receiving', 20], [2006, 'Receiving', 9], [2005, 'Receiving', 51], [2004, 'Receiving', 3]]
-65       Kenny Watson: [[2008, 'Rushing', 13], [2007, 'Rushing', 178], [2006, 'Rushing', 25], [2004, 'Rushing', 26], [2002, 'Rushing', 116], [2008, 'Receiving', 3], [2007, 'Receiving', 52], [2006, 'Receiving', 23], [2004, 'Receiving', 25], [2002, 'Receiving', 32]]
-66       Mike Anderson: [[2007, 'Rushing', 15], [2006, 'Rushing', 39], [2005, 'Rushing', 239], [2003, 'Rushing', 70], [2002, 'Rushing', 84], [2001, 'Rushing', 175], [2000, 'Rushing', 297], [2007, 'Receiving', 4], [2006, 'Receiving', 9], [2005, 'Receiving', 18], [2003, 'Receiving', 12], [2002, 'Receiving', 18], [2001, 'Receiving', 8], [2000, 'Receiving', 23]]
-67       Ron Dayne: [[2007, 'Rushing', 194], [2006, 'Rushing', 151], [2005, 'Rushing', 53], [2004, 'Rushing', 52], [2002, 'Rushing', 125], [2001, 'Rushing', 180], [2000, 'Rushing', 228], [2007, 'Receiving', 17], [2006, 'Receiving', 14], [2005, 'Receiving', 3], [2004, 'Receiving', 1], [2002, 'Receiving', 11], [2001, 'Receiving', 8], [2000, 'Receiving', 3]]
-69       Marcel Shipp: [[2007, 'Rushing', 15], [2006, 'Rushing', 17], [2005, 'Rushing', 157], [2003, 'Rushing', 228], [2002, 'Rushing', 188], [2007, 'Receiving', 4], [2006, 'Receiving', 6], [2005, 'Receiving', 35], [2003, 'Receiving', 30], [2002, 'Receiving', 38]]
-71       Ki-Jana Carter: [[2004, 'Rushing', 10], [2003, 'Rushing', 19], [2001, 'Rushing', 63], [2004, 'Receiving', 0], [2003, 'Receiving', 1], [2001, 'Receiving', 13]]
+1. J.K. Dobbins: 
+	 ['Skipped a year 2020 Rushing', 'Skipped a year 2020 Receiving']
+	
+
+2. Joshua Dobbs: 
+	 ['Skipped a year 2020 Rushing', 'Skipped a year 2018 Rushing', 'Skipped a year 2020 Receiving', 'Skipped a year 2018 Receiving']
+	
+
+3. Rico Dowdle: 
+	 ['Skipped a year 2020 Rushing', 'Skipped a year 2020 Receiving']
+	
+
+4. Gus Edwards: 
+	 ['Skipped a year 2020 Rushing', 'Skipped a year 2020 Receiving']
+	
+
+5. D'Onta Foreman: 
+	 ['Skipped a year 2018 Rushing', 'Skipped a year 2018 Receiving']
+	
+
+6. Myles Gaskin: 
+	 ['Skipped a year 2022 Rushing', 'Skipped a year 2022 Receiving']
+	
+
+7. Justice Hill: 
+	 ['Skipped a year 2020 Rushing', 'Skipped a year 2020 Receiving']
+	
+
+8. Deshaun Watson: 
+	 ['Skipped a year 2020 Rushing', 'Skipped a year 2020 Receiving']
+	
+
+9. Brandon Bolden: 
+	 ['Skipped a year 2019 Rushing', 'Skipped a year 2019 Receiving']
+	
+
+10. Jerick McKinnon: 
+	 ['Skipped a year 2017 Rushing', 'Skipped a year 2017 Receiving']
+	
+
+11. La'Mical Perine: 
+	 ['Skipped a year 2021 Rushing', 'Skipped a year 2021 Receiving']
+	
+
+12. Damien Williams: 
+	 ['Skipped a year 2019 Rushing', 'Skipped a year 2019 Receiving']
+	
+
+13. Marcus Allen: 
+	 ['Skipped a year 1997 Rushing', 'Skipped a year 1997 Receiving']
+	
+
+14. Corey Clement: 
+	 ['Skipped a year 2018 Rushing', 'Skipped a year 2018 Receiving']
+	
+
+15. Mark Ingram: 
+	 ['Skipped a year 1996 Rushing', 'Skipped a year 1996 Receiving']
+	
+
+16. David Johnson: 
+	 ['Repeated a year 2016 Rushing', 'Repeated a year 2015 Rushing', 'Skipped a year 2011 Rushing', 'Repeated a year 2016 Receiving', 'Repeated a year 2015 Receiving', 'Skipped a year 2011 Receiving']
+	
+
+17. Jeff Smith: 
+	 ['Skipped a year 1988 Rushing', 'Repeated a year 1987 Rushing', 'Skipped a year 1988 Receiving', 'Repeated a year 1987 Receiving']
+	
+
+18. Jordan Wilkins: 
+	 ['Skipped a year 2020 Rushing', 'Skipped a year 2020 Receiving']
+	
+
+19. Le'Veon Bell: 
+	 ['Skipped a year 2017 Rushing', 'Skipped a year 2017 Receiving']
+	
+
+20. Alex Collins: 
+	 ['Skipped a year 2018 Rushing', 'Skipped a year 2018 Receiving']
+	
+
+21. Adrian Peterson: 
+	 ['Repeated a year 2009 Rushing', 'Repeated a year 2008 Rushing', 'Repeated a year 2007 Rushing', 'Repeated a year 2009 Receiving', 'Repeated a year 2008 Receiving', 'Repeated a year 2007 Receiving']
+	
+
+22. Wendell Smallwood: 
+	 ['Skipped a year 2019 Rushing', 'Skipped a year 2019 Receiving']
+	
+
+23. Robert Griffin III: 
+	 ['Skipped a year 2016 Rushing', 'Skipped a year 2014 Rushing', 'Skipped a year 2016 Receiving', 'Skipped a year 2014 Receiving']
+	
+
+24. Dion Lewis: 
+	 ['Skipped a year 2012 Rushing', 'Skipped a year 2012 Receiving']
+	
+
+25. Lamar Miller: 
+	 ['Skipped a year 2018 Rushing', 'Skipped a year 2018 Receiving']
+	
+
+26. Theo Riddick: 
+	 ['Skipped a year 2018 Rushing', 'Skipped a year 2018 Receiving']
+	
+
+27. Alex Smith: 
+	 ['Skipped a year 2018 Rushing', 'Repeated a year 2015 Rushing', 'Repeated a year 2013 Rushing', 'Repeated a year 2012 Rushing', 'Repeated a year 2011 Rushing', 'Repeated a year 2010 Rushing', 'Repeated a year 2009 Rushing', 'Repeated a year 2007 Rushing', 'Repeated a year 2006 Rushing', 'Repeated a year 2005 Rushing', 'Skipped a year 2018 Receiving', 'Repeated a year 2015 Receiving', 'Repeated a year 2013 Receiving', 'Repeated a year 2012 Receiving', 'Repeated a year 2011 Receiving', 'Repeated a year 2010 Receiving', 'Repeated a year 2009 Receiving', 'Repeated a year 2007 Receiving', 'Repeated a year 2006 Receiving', 'Repeated a year 2005 Receiving']
+	
+
+28. Chris Thompson: 
+	 ['Repeated a year 2017 Rushing', 'Repeated a year 2017 Receiving']
+	
+
+29. Ryan Grant: 
+	 ['Skipped a year 2012 Rushing', 'Skipped a year 2012 Receiving']
+	
+
+30. Marshawn Lynch: 
+	 ['Skipped a year 2015 Rushing', 'Skipped a year 2015 Receiving']
+	
+
+31. Paul Perkins: 
+	 ['Skipped a year 2017 Rushing', 'Skipped a year 2017 Receiving']
+	
+
+32. Darren Sproles: 
+	 ['Skipped a year 2005 Rushing', 'Skipped a year 2005 Receiving']
+	
+
+33. Spencer Ware: 
+	 ['Skipped a year 2016 Rushing', 'Skipped a year 2013 Rushing', 'Skipped a year 2016 Receiving', 'Skipped a year 2013 Receiving']
+	
+
+34. Kenneth Dixon: 
+	 ['Skipped a year 2016 Rushing', 'Skipped a year 2016 Receiving']
+	
+
+35. Mike Gillislee: 
+	 ['Skipped a year 2013 Rushing', 'Skipped a year 2013 Receiving']
+	
+
+36. Jeremy Langford: 
+	 ['Skipped a year 2016 Rushing', 'Skipped a year 2016 Receiving']
+	
+
+37. Christine Michael: 
+	 ['Skipped a year 2016 Rushing', 'Skipped a year 2016 Receiving']
+	
+
+38. Terrelle Pryor: 
+	 ['Skipped a year 2013 Rushing', 'Skipped a year 2013 Receiving']
+	
+
+39. Matt Jones: 
+	 ['Skipped a year 2008 Rushing', 'Skipped a year 2008 Receiving']
+	
+
+40. Branden Oliver: 
+	 ['Skipped a year 2015 Rushing', 'Skipped a year 2015 Receiving']
+	
+
+41. Tim Hightower: 
+	 ['Skipped a year 2011 Rushing', 'Skipped a year 2011 Receiving']
+	
+
+42. Rashad Jennings: 
+	 ['Skipped a year 2010 Rushing', 'Skipped a year 2010 Receiving']
+	
+
+43. Daryl Richardson: 
+	 ['Skipped a year 2013 Rushing', 'Skipped a year 2013 Receiving']
+	
+
+44. Kendall Hunter: 
+	 ['Skipped a year 2013 Rushing', 'Skipped a year 2013 Receiving']
+	
+
+45. James Jones: 
+	 ['Skipped a year 1996 Rushing', 'Skipped a year 1994 Rushing', 'Repeated a year 1992 Rushing', 'Repeated a year 1985 Rushing', 'Repeated a year 1984 Rushing', 'Skipped a year 1996 Receiving', 'Skipped a year 1994 Receiving', 'Repeated a year 1992 Receiving', 'Repeated a year 1985 Receiving', 'Repeated a year 1984 Receiving']
+	
+
+46. Kevin Smith: 
+	 ['Skipped a year 2012 Rushing', 'Skipped a year 1994 Rushing', 'Skipped a year 2012 Receiving', 'Skipped a year 1994 Receiving']
+	
+
+47. Michael Vick: 
+	 ['Skipped a year 2006 Rushing', 'Skipped a year 2006 Receiving']
+	
+
+48. Chris Ogbonnaya: 
+	 ['Skipped a year 2009 Rushing', 'Skipped a year 2009 Receiving']
+	
+
+49. Andre Brown: 
+	 ['Skipped a year 2010 Rushing', 'Skipped a year 1990 Rushing', 'Skipped a year 2010 Receiving', 'Skipped a year 1990 Receiving']
+	
+
+50. Greg Jones: 
+	 ['Skipped a year 2005 Rushing', 'Skipped a year 2005 Receiving']
+	
+
+51. Deji Karim: 
+	 ['Skipped a year 2011 Rushing', 'Skipped a year 2011 Receiving']
+	
+
+52. Lance Ball: 
+	 ['Skipped a year 2008 Rushing', 'Skipped a year 2008 Receiving']
+	
+
+53. Kahlil Bell: 
+	 ['Skipped a year 2009 Rushing', 'Skipped a year 2009 Receiving']
+	
+
+54. Brandon Jackson: 
+	 ['Skipped a year 2010 Rushing', 'Skipped a year 2010 Receiving']
+	
+
+55. Steve Smith: 
+	 ['Skipped a year 1995 Rushing', 'Skipped a year 1995 Receiving']
+	
+
+56. Ryan Torain: 
+	 ['Skipped a year 2008 Rushing', 'Skipped a year 2008 Receiving']
+	
+
+57. Derrick Ward: 
+	 ['Skipped a year 2005 Rushing', 'Skipped a year 2005 Receiving']
+	
+
+58. Ricky Williams: 
+	 ['Skipped a year 2005 Rushing', 'Skipped a year 2003 Rushing', 'Repeated a year 2003 Rushing', 'Repeated a year 2002 Rushing', 'Skipped a year 2005 Receiving', 'Skipped a year 2003 Receiving', 'Repeated a year 2003 Receiving', 'Repeated a year 2002 Receiving']
+	
+
+59. Correll Buckhalter: 
+	 ['Skipped a year 2003 Rushing', 'Skipped a year 2001 Rushing', 'Skipped a year 2003 Receiving', 'Skipped a year 2001 Receiving']
+	
+
+60. David Garrard: 
+	 ['Skipped a year 2002 Rushing', 'Skipped a year 2002 Receiving']
+	
+
+61. Greg Lewis: 
+	 ['Skipped a year 1992 Rushing', 'Skipped a year 1992 Receiving']
+	
+
+62. Dominic Rhodes: 
+	 ['Skipped a year 2008 Rushing', 'Skipped a year 2001 Rushing', 'Skipped a year 2008 Receiving', 'Skipped a year 2001 Receiving']
+	
+
+63. Leonard Weaver: 
+	 ['Skipped a year 2005 Rushing', 'Skipped a year 2005 Receiving']
+	
+
+64. Chris Brown: 
+	 ['Skipped a year 2007 Rushing', 'Skipped a year 2007 Receiving']
+	
+
+65. Mark Brunell: 
+	 ['Skipped a year 2006 Rushing', 'Skipped a year 2006 Receiving']
+	
+
+66. Verron Haynes: 
+	 ['Skipped a year 2007 Rushing', 'Skipped a year 2007 Receiving']
+	
+
+67. Jamal Lewis: 
+	 ['Skipped a year 2000 Rushing', 'Skipped a year 2000 Receiving']
+	
+
+68. Ryan Moats: 
+	 ['Skipped a year 2006 Rushing', 'Skipped a year 2006 Receiving']
+	
+
+69. Jesse Chatman: 
+	 ['Skipped a year 2004 Rushing', 'Skipped a year 2004 Receiving']
+	
+
+70. Nick Goings: 
+	 ['Skipped a year 2006 Rushing', 'Skipped a year 2006 Receiving']
+	
+
+71. Chris Perry: 
+	 ['Skipped a year 2006 Rushing', 'Skipped a year 2006 Receiving']
+	
+
+72. Kenny Watson: 
+	 ['Skipped a year 2004 Rushing', 'Skipped a year 2002 Rushing', 'Skipped a year 2004 Receiving', 'Skipped a year 2002 Receiving']
+	
+
+73. Mike Anderson: 
+	 ['Skipped a year 2003 Rushing', 'Skipped a year 2003 Receiving']
+	
+
+74. Ron Dayne: 
+	 ['Skipped a year 2002 Rushing', 'Skipped a year 2002 Receiving']
+	
+
+75. Priest Holmes: 
+	 ['Skipped a year 2005 Rushing', 'Skipped a year 2005 Receiving']
+	
+
+76. Marcel Shipp: 
+	 ['Skipped a year 2003 Rushing', 'Skipped a year 2003 Receiving']
+	
+
+77. Dee Brown: 
+	 ['Skipped a year 2002 Rushing', 'Skipped a year 2002 Receiving']
+	
+
+78. Fred McAfee: 
+	 ['Skipped a year 2004 Rushing', 'Skipped a year 1998 Rushing', 'Skipped a year 2004 Receiving', 'Skipped a year 1998 Receiving']
+	
+
+79. Doug Flutie: 
+	 ['Skipped a year 1989 Rushing', 'Skipped a year 1989 Receiving']
+	
+
+80. Brandon Bennett: 
+	 ['Skipped a year 1998 Rushing', 'Skipped a year 1998 Receiving']
+	
+
+81. Ki-Jana Carter: 
+	 ['Skipped a year 2001 Rushing', 'Skipped a year 1999 Rushing', 'Skipped a year 2001 Receiving', 'Skipped a year 1999 Receiving']
+	
+
+82. Rich Gannon: 
+	 ['Skipped a year 1993 Rushing', 'Skipped a year 1988 Rushing', 'Skipped a year 1993 Receiving', 'Skipped a year 1988 Receiving']
+	
+
+83. Garrison Hearst: 
+	 ['Skipped a year 1998 Rushing', 'Skipped a year 1998 Receiving']
+	
+
+84. John Avery: 
+	 ['Skipped a year 1999 Rushing', 'Skipped a year 1999 Receiving']
+	
+
+85. Leon Johnson: 
+	 ['Skipped a year 1999 Rushing', 'Skipped a year 1999 Receiving']
+	
+
+86. Brian Mitchell: 
+	 ['Skipped a year 2001 Rushing', 'Skipped a year 2001 Receiving']
+	
+
+87. Adrian Murrell: 
+	 ['Skipped a year 2000 Rushing', 'Skipped a year 2000 Receiving']
+	
+
+88. Robert Edwards: 
+	 ['Skipped a year 1998 Rushing', 'Skipped a year 1998 Receiving']
+	
+
+89. Jay Graham: 
+	 ['Skipped a year 1998 Rushing', 'Skipped a year 1998 Receiving']
+	
+
+90. Richard Huntley: 
+	 ['Skipped a year 1996 Rushing', 'Skipped a year 1996 Receiving']
+	
+
+91. Travis Jervey: 
+	 ['Skipped a year 1996 Rushing', 'Skipped a year 1996 Receiving']
+	
+
+92. Eric Metcalf: 
+	 ['Skipped a year 1999 Rushing', 'Skipped a year 1999 Receiving']
+	
+
+93. Joe Montgomery: 
+	 ['Skipped a year 2000 Rushing', 'Skipped a year 2000 Receiving']
+	
+
+94. James Stewart: 
+	 ['Repeated a year 1995 Rushing', 'Repeated a year 1995 Receiving']
+	
+
+95. Lamont Warren: 
+	 ['Skipped a year 1999 Rushing', 'Skipped a year 1999 Receiving']
+	
+
+96. Terry Allen: 
+	 ['Skipped a year 1992 Rushing', 'Skipped a year 1992 Receiving']
+	
+
+97. Randall Cunningham: 
+	 ['Skipped a year 1995 Rushing', 'Skipped a year 1990 Rushing', 'Skipped a year 1995 Receiving', 'Skipped a year 1990 Receiving']
+	
+
+98. Darnell Autry: 
+	 ['Skipped a year 1997 Rushing', 'Skipped a year 1997 Receiving']
+	
+
+99. Raymont Harris: 
+	 ['Skipped a year 1998 Rushing', 'Skipped a year 1998 Receiving']
+	
+
+100. Jerald Moore: 
+	 ['Skipped a year 1998 Rushing', 'Skipped a year 1998 Receiving']
+	
+
