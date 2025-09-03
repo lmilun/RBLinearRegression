@@ -54,3 +54,26 @@ for i in toPop:
     playerYears.pop(i)
 
 #Now we are left with all players who at some point meet the minimum
+#Next is to find all of the repeat names
+#These players fit into two categories: players who skip a year and names that appear multiple times in the same season
+
+
+count = 0
+
+#Check for both of these issues
+for i in playerYears.keys():
+    bad = False
+    prev = None
+    prevType = None
+    for j in playerYears[i]:
+        #If it isn't the first entry for this player, either a year is skipped or both a year is repeated and type stays the same
+        if prev != None and (j[0] - 1 > prev or (j[0] == prev and j[1] == prevType)):
+            bad = True
+            break
+        prev = j[0]
+        prevType = j[1]
+
+    #Print out all of the "bad" players and what number they are:
+    if bad == True:
+        count += 1
+        print(f'{count}\t {i}: {playerYears[i]}')
