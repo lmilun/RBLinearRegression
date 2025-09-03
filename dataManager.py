@@ -42,7 +42,7 @@ for i in playerYears.keys():
     #Checks if minimum requirements of 50 carries and 75 touches is met for each season
     good = False
     for j in this.keys():
-        if this[j][0] > 50 and this[j][1] > 75:
+        if this[j][0] >= 50 and this[j][1] >= 75:
             good = True
     
     #If minimums aren't met, player name is added to list of players to remove
