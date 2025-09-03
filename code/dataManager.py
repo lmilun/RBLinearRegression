@@ -3,7 +3,7 @@ import pandas as pd
 headers = ['Type', 'Year', 'player_yead_id', 'Name', 'Age', 'Team(s)', 'pos', 'G', 'GS', 'Att/Tgt', 'Yds/Rec', 'TD/Yds', '1D/YpR', 'Succ%/TD', 'Lng/1D', 'YpA/Succ%', 'YpG/Lng', 'ApG/RpG', 'Fmb/YpG', 'Awards/Ctch%', '/YpTgt', '/Fmb', '/Awards']
 
 # Import csv to a pandas data frame
-rawData = pd.read_csv("rawData.csv", header = 0, names = headers, low_memory=False)
+rawData = pd.read_csv("data/rawData.csv", header = 0, names = headers, low_memory=False)
 
 
 #Beginning process of cleaning data by finding all duplicate names
@@ -61,7 +61,7 @@ for i in toPop:
 
 count = 0
 
-with open("problemNames.txt", "w") as file:
+with open("data/problemNames.txt", "w") as file:
     pass
 
 #Check for both of these issues
@@ -101,5 +101,5 @@ for i in playerYears.keys():
     #Print out all of the "bad" players and what number they are:
     if bad == True:
         count += 1
-        with open("problemNames.txt", "a") as file:
+        with open("data/problemNames.txt", "a") as file:
             file.write(f'{count}. {i}: \n\t{playerYears[i]} \n\t {issues}\n\n')
