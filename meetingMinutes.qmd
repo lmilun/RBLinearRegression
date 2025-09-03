@@ -1,0 +1,15 @@
+---
+title: "Meeting Minutes"
+format: html
+author: 'Lewis Milun'
+---
+
+
+## Meeting on 9/3/2025
+
+Arrived 2:15 PM
+- Use playerid from pro-football-reference
+- Make README.qmd
+- Write data source and variable names/descriptions on README.qmd
+- Find references
+- Clean the data, then identify the problem to study
