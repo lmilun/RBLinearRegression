@@ -12,4 +12,5 @@ Arrived 2:15 PM
 - Make README.qmd
 - Write data source and variable names/descriptions on README.qmd
 - Find references
+    + Put in apa.csl format
 - Clean the data, then identify the problem to study
