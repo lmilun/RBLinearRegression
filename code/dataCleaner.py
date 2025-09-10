@@ -25,4 +25,6 @@ for _,a in eligiblePlayers.iterrows():
     new_row = pd.DataFrame({'playerID': [a['playerID']], 'Player': [a['Player']]})
     yptTimeline = pd.concat([yptTimeline, new_row], ignore_index=True)
 
+yptTimeline.set_index('playerID', inplace=True)
+
 print(yptTimeline)
