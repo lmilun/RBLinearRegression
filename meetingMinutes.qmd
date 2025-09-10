@@ -14,3 +14,34 @@ Arrived 2:15 PM
 - Find references
     + Put in apa.csl format
 - Clean the data, then identify the problem to study
+
+
+## Meeting on 9/10/2025
+
+Arrived 2:14 PM
+Others:
+- QB trends since 2012
+    + Maybe fantasy points (probably not)
+- Use a series of variables
+    + Make a plot for each one showing if there is correlation
+    + GGplot in R 
+
+- Looking at injury impact on team
+- Switched to making a game predictor
+- nflFastR
+- Use old play-by-play data to predict outcomes of future games
+
+Meeting minutes should include:
+- What have we discussed
+- What decision have we made
+- What tasks do we have to do for next time
+
+
+For me:
+- Add description of how data was gotten
+    + Put in a README how to get from rawData to final data
+- Make plot for "exploratory analysis for motivation"
+- Have data in form of [name, year, ypt]
+
+Should I delete old data and code? (maybe just remove it)
+- 
