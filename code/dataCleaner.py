@@ -9,4 +9,4 @@ for _,a in allSeasons.iterrows():
     if a['playerID'] in eligiblePlayers['playerID'].values:
         eligibleSeasons.loc[len(eligibleSeasons)] = a
 
-print(eligibleSeasons)
+eligibleSeasons.to_csv('data/playerSeasons.csv')
