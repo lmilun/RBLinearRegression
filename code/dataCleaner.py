@@ -9,4 +9,17 @@ for _,a in allSeasons.iterrows():
     if a['Player'] in eligiblePlayers['Player'].values:
         potentiallyEligibleSeasons.loc[len(potentiallyEligibleSeasons)] = a
 
-print(potentiallyEligibleSeasons)
+playerCounts = {}
+
+for _,a in potentiallyEligibleSeasons.iterrows():
+    if a['Player'] not in playerCounts.keys():
+        playerCounts[a['Player']] = 1
+    else:
+        playerCounts[a['Player']] += 1
+
+print(playerCounts)
+
+for a in playerCounts.keys():
+    for _,b in eligiblePlayers.iterrows():
+        if a == b['Player'] and playerCounts[a] != b['Count']:
+            pass
