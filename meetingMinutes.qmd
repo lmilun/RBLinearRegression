@@ -44,4 +44,4 @@ For me:
 - Have data in form of [name, year, ypt]
 
 Should I delete old data and code? (maybe just remove it)
-- 
+- Y
