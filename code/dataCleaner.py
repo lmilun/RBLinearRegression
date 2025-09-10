@@ -17,8 +17,6 @@ cols = ['playerID', 'Player']
 for i in range(20,40):
     cols.append(i)
 
-print(cols)
-
 yptTimeline = pd.DataFrame(columns = cols)\
 
 for _,a in eligiblePlayers.iterrows():
@@ -26,5 +24,10 @@ for _,a in eligiblePlayers.iterrows():
     yptTimeline = pd.concat([yptTimeline, new_row], ignore_index=True)
 
 yptTimeline.set_index('playerID', inplace=True)
+
+for _,a in eligibleSeasons.iterrows():
+    if a['Touch'] > 0:
+        yptTimeline[a['playerID'], a['Age']] = a['YScm'] / a['Touch']
+ 
 
 print(yptTimeline)
