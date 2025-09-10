@@ -26,8 +26,8 @@ for _,a in eligiblePlayers.iterrows():
 yptTimeline.set_index('playerID', inplace=True)
 
 for _,a in eligibleSeasons.iterrows():
-    if a['Touch'] > 0:
+    if a['Touch'] >= 10:
         yptTimeline.at[a['playerID'], a['Age']] = a['YScm'] / a['Touch']
  
 
-print(yptTimeline)
+yptTimeline.to_csv('data/age_vs_YPT.csv')
