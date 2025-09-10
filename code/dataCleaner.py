@@ -5,4 +5,8 @@ allSeasons = pd.read_csv('data/rawSeasonsData.csv')
 
 potentiallyEligibleSeasons = pd.DataFrame(columns = allSeasons.columns)
 
-print(allSeasons)
+for _,a in allSeasons.iterrows():
+    if a['Player'] in eligiblePlayers['Player'].values:
+        potentiallyEligibleSeasons.loc[len(potentiallyEligibleSeasons)] = a
+
+print(potentiallyEligibleSeasons)
