@@ -27,7 +27,7 @@ yptTimeline.set_index('playerID', inplace=True)
 
 for _,a in eligibleSeasons.iterrows():
     if a['Touch'] > 0:
-        yptTimeline[a['playerID'], a['Age']] = a['YScm'] / a['Touch']
+        yptTimeline.at[a['playerID'], a['Age']] = a['YScm'] / a['Touch']
  
 
 print(yptTimeline)
