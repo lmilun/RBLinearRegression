@@ -17,7 +17,7 @@ cols = ['playerID', 'Player']
 for i in range(20,40):
     cols.append(i)
 
-yptTimeline = pd.DataFrame(columns = cols)\
+yptTimeline = pd.DataFrame(columns = cols)
 
 for _,a in eligiblePlayers.iterrows():
     new_row = pd.DataFrame({'playerID': [a['playerID']], 'Player': [a['Player']]})
@@ -31,3 +31,16 @@ for _,a in eligibleSeasons.iterrows():
  
 
 yptTimeline.to_csv('data/age_vs_YPT.csv')
+
+cols = ['playerID', 'Player', 'Year', 'YpT']
+
+newThing = pd.DataFrame(columns=cols)
+
+for _,a in eligibleSeasons.iterrows():
+    if a['Touch'] >= 10:
+        new_row = pd.DataFrame({'playerID': [a['playerID']], 'Player': [a['Player']], 'Year': [a['Season']], 'YpT': [a['YScm'] / a['Touch']]})
+        newThing = pd.concat([newThing,new_row], ignore_index = True)
+
+newThing = newThing.sort_values(by = ['playerID','Year'],ignore_index = True)
+
+newThing.to_csv('data/statsByYear.csv')
