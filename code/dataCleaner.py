@@ -47,11 +47,11 @@ byYear.to_csv('data/statsByYear.csv')
 
 
 #Obtaining career statistics up to given season
-cols = ['playerID', 'Player', 'Year','Att','Rec','Touch','rushingYds','rushingY/A','rushingTD','receivingTgt','receivingYds','receivingY/R','receivingTD','receivingCtch%','YScm','YpT']
+cols = ['playerID', 'Player', 'Season','Year','G','Att','Rec','Touch','rushingYds','rushingY/A','rushingTD','receivingTgt','receivingYds','receivingY/R','receivingTD','receivingCtch%','YScm','YpT']
 
 careerStats = {}
 
-numeric_cols = ['Season','Att','Rec','Touch','rushingYds','rushingTD',
+numeric_cols = ['Season','G','Att','Rec','Touch','rushingYds','rushingTD',
                 'receivingTgt','receivingYds','receivingTD','YScm']
 
 # Convert columns to numeric (errors='coerce' turns non-numeric strings into NaN)
@@ -65,19 +65,25 @@ for _, season in eligibleSeasons[::-1].iterrows():  # oldest -> newest
     
     # Initialize career stats
     if pid not in careerStats:
-        careerStats[pid] = {'Att':0, 'Rec':0, 'Touch':0, 'rushingYds':0, 'rushingTD':0,
+        careerStats[pid] = {'Year':0,'G':0,'Att':0, 'Rec':0, 'Touch':0, 'rushingYds':0, 'rushingTD':0,
                             'receivingTgt':0, 'receivingYds':0, 'receivingTD':0, 'YScm':0}
 
     # Update cumulative totals first
     for stat in careerStats[pid]:
-        if pd.notna(season[stat]):
+        if stat == 'Year':
+            careerStats[pid]['Year'] += 1
+        elif pd.notna(season[stat]):
             careerStats[pid][stat] += season[stat]
+    
+    
 
     # Build row
     row = {
         'playerID': pid,
         'Player': season['Player'],
-        'Year': season['Season'],
+        'Season': season['Season'],
+        'Year': careerStats[pid]['Year'],
+        'G': careerStats[pid]['G'],
         'Att': careerStats[pid]['Att'],
         'Rec': careerStats[pid]['Rec'],
         'Touch': careerStats[pid]['Touch'],
@@ -96,7 +102,7 @@ for _, season in eligibleSeasons[::-1].iterrows():  # oldest -> newest
     row['YpT'] = (row['rushingYds'] + row['receivingYds']) / row['Touch'] if row['Touch'] > 0 else 0
 
     # Only append rows for years >= 2000
-    if row['Year'] >= 2000:
+    if row['Season'] >= 2000:
         withCareerStats = pd.concat([withCareerStats, pd.DataFrame([row])], ignore_index=True)
 
 withCareerStats.to_csv('data/withCareerStats.csv')
