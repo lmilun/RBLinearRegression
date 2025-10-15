@@ -45,3 +45,36 @@ For me:
 
 Should I delete old data and code? (maybe just remove it)
 - Y
+
+
+
+
+## Meeting on 9/14/2025
+
+Arrived 2:13 PM
+
+
+- Clustered data regression
+- Machine Learning
+    - XGboost
+
+
+## Meeting on 10/15/2025
+
+Arrived 2:18 PM
+
+- Collect Relavent literature
+
+- Manuscript template
+    - Write about 1 paragraph a day
+    - Put problem formulation here so he can leave comments
+
+- Use variable importance metrics
+    - Shapely value
+    - Search for more...
+        - May be some for random forest
+        - Look at his webpage publication #5 for an example
+
+- For next week:
+    - Put problem formulation in manuscript
+    - Upload code to github
