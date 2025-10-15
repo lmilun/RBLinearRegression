@@ -45,64 +45,78 @@ byYear = byYear.sort_values(by = ['playerID','Year'],ignore_index = True)
 
 byYear.to_csv('data/statsByYear.csv')
 
+# --- Obtaining career statistics and lag features for all metrics ---
 
-#Obtaining career statistics up to given season
-cols = ['playerID', 'Player', 'Season','Year','G','Att','Rec','Touch','rushingYds','rushingY/A','rushingTD','receivingTgt','receivingYds','receivingY/R','receivingTD','receivingCtch%','YScm','YpT']
-
-careerStats = {}
-
-numeric_cols = ['Season','G','Att','Rec','Touch','rushingYds','rushingTD',
+# Identify numeric columns to track
+numeric_cols = ['G','Att','Rec','Touch','rushingYds','rushingTD',
                 'receivingTgt','receivingYds','receivingTD','YScm']
 
-# Convert columns to numeric (errors='coerce' turns non-numeric strings into NaN)
-eligibleSeasons[numeric_cols] = eligibleSeasons[numeric_cols].apply(pd.to_numeric, errors='coerce')
+# Initialize career stats container
+careerStats = {}
+withCareerStats = pd.DataFrame()
 
-
-withCareerStats = pd.DataFrame(columns = cols)
-
-for _, season in eligibleSeasons[::-1].iterrows():  # oldest -> newest
+# Build cumulative stats through each season
+for _, season in eligibleSeasons.sort_values(['playerID','Season']).iterrows():
     pid = season['playerID']
-    
-    # Initialize career stats
     if pid not in careerStats:
-        careerStats[pid] = {'Year':0,'G':0,'Att':0, 'Rec':0, 'Touch':0, 'rushingYds':0, 'rushingTD':0,
-                            'receivingTgt':0, 'receivingYds':0, 'receivingTD':0, 'YScm':0}
+        careerStats[pid] = {stat: 0 for stat in numeric_cols}
+        careerStats[pid]['Year'] = 0
 
-    # Update cumulative totals first
-    for stat in careerStats[pid]:
-        if stat == 'Year':
-            careerStats[pid]['Year'] += 1
-        elif pd.notna(season[stat]):
-            careerStats[pid][stat] += season[stat]
-    
-    
+    careerStats[pid]['Year'] += 1
 
-    # Build row
     row = {
         'playerID': pid,
         'Player': season['Player'],
         'Season': season['Season'],
-        'Year': careerStats[pid]['Year'],
-        'G': careerStats[pid]['G'],
-        'Att': careerStats[pid]['Att'],
-        'Rec': careerStats[pid]['Rec'],
-        'Touch': careerStats[pid]['Touch'],
-        'rushingYds': careerStats[pid]['rushingYds'],
-        'rushingTD': careerStats[pid]['rushingTD'],
-        'receivingTgt': careerStats[pid]['receivingTgt'],
-        'receivingYds': careerStats[pid]['receivingYds'],
-        'receivingTD': careerStats[pid]['receivingTD'],
-        'YScm': careerStats[pid]['YScm']
+        'Age': season['Age'],
+        'Year': careerStats[pid]['Year']
     }
 
-    # Derived stats
-    row['rushingY/A'] = row['rushingYds'] / row['Att'] if row['Att'] > 0 else 0
-    row['receivingY/R'] = row['receivingYds'] / row['Rec'] if row['Rec'] > 0 else 0
-    row['receivingCtch%'] = (row['receivingYds'] / row['receivingTgt'] * 100) if row['receivingTgt'] > 0 else 0
-    row['YpT'] = (row['rushingYds'] + row['receivingYds']) / row['Touch'] if row['Touch'] > 0 else 0
+    # Add career totals (_c) for all tracked stats
+    for stat in numeric_cols:
+        row[f'{stat}_c'] = careerStats[pid][stat]
 
-    # Only append rows for years >= 2000
-    if row['Season'] >= 2000:
-        withCareerStats = pd.concat([withCareerStats, pd.DataFrame([row])], ignore_index=True)
+    # Derived metrics
+    row['rushingY/A_c'] = row['rushingYds_c'] / row['Att_c'] if row['Att_c'] > 0 else 0
+    row['receivingY/R_c'] = row['receivingYds_c'] / row['Rec_c'] if row['Rec_c'] > 0 else 0
+    row['receivingCtch%_c'] = (row['receivingYds_c'] / row['receivingTgt_c'] * 100) if row['receivingTgt_c'] > 0 else 0
+    row['YpT_c'] = (row['rushingYds_c'] + row['receivingYds_c']) / row['Touch_c'] if row['Touch_c'] > 0 else 0
 
-withCareerStats.to_csv('data/withCareerStats.csv')
+    # Current season metrics (_t-1)
+    for stat in numeric_cols:
+        row[f'{stat}_t-1'] = season[stat]
+
+    # Derived metrics for current season (_t-1)
+    row['rushingY/A_t-1'] = season['rushingYds'] / season['Att'] if season['Att'] > 0 else 0
+    row['receivingY/R_t-1'] = season['receivingYds'] / season['Rec'] if season['Rec'] > 0 else 0
+    row['receivingCtch%_t-1'] = (season['receivingYds'] / season['receivingTgt'] * 100) if season['receivingTgt'] > 0 else 0
+    row['YpT_t-1'] = (season['rushingYds'] + season['receivingYds']) / season['Touch'] if season['Touch'] > 0 else 0
+
+    withCareerStats = pd.concat([withCareerStats, pd.DataFrame([row])], ignore_index=True)
+
+    # Update career totals
+    for stat in numeric_cols:
+        if pd.notna(season[stat]):
+            careerStats[pid][stat] += season[stat]
+
+# Sort by player and season
+withCareerStats = withCareerStats.sort_values(['playerID','Season']).copy()
+
+# --- Create lag features for t-2 and t-3 ---
+lag_stats = numeric_cols + ['rushingY/A', 'receivingY/R', 'receivingCtch%', 'YpT']
+for stat in lag_stats:
+    withCareerStats[f'{stat}_t-2'] = withCareerStats.groupby('playerID')[f'{stat}_t-1'].shift(1)
+    withCareerStats[f'{stat}_t-3'] = withCareerStats.groupby('playerID')[f'{stat}_t-1'].shift(2)
+
+# Filter for players with at least 3 prior seasons
+withCareerStats = withCareerStats[withCareerStats['Year'] >= 4]
+
+# Add target variable (next season’s YpT)
+withCareerStats['next_YpT'] = withCareerStats.groupby('playerID')['YpT_t-1'].shift(-1)
+
+# Drop rows with no target (final career season)
+model_data = withCareerStats.dropna(subset=['next_YpT']).copy()
+
+# Save for XGBoost
+model_data.to_csv('data/xgboost_input.csv', index=False)
+print("Saved:", model_data.shape, "→ data/xgboost_input.csv")
