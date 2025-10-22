@@ -1,3 +1,6 @@
 Problem Formulation:
-I am attempting to create a model to project the future success of NFL running
-backs based on their previous statistics.
+It has proven very difficult for NFL teams to properly identify which free agent
+running backs should be considered premium targets. My goal is to create a model
+to project the future success of NFL running backs based on their previous 
+statistics. I will compare several different models and combinations of
+variables to determine the best way to evaluate running backs.
