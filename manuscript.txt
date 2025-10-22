@@ -1,0 +1,3 @@
+Problem Formulation:
+I am attempting to create a model to project the future success of NFL running
+backs based on their previous statistics.
