@@ -45,7 +45,7 @@ byYear = byYear.sort_values(by = ['playerID','Year'],ignore_index = True)
 
 byYear.to_csv('data/statsByYear.csv')
 
-# --- Obtaining career statistics and lag features for all metrics ---
+
 
 # Identify numeric columns to track
 numeric_cols = ['G','Att','Rec','Touch','rushingYds','rushingTD',

@@ -78,3 +78,11 @@ Arrived 2:18 PM
 - For next week:
     - Put problem formulation in manuscript
     - Upload code to github
+
+
+## Meeting on 10/22/2025
+
+- Collinearity matters less with forest models
+    - Therefore lag data may be worth it
+
+- Need "deliverable" by end of semester
