@@ -78,3 +78,21 @@ Arrived 2:18 PM
 - For next week:
     - Put problem formulation in manuscript
     - Upload code to github
+
+
+
+## Meeting on 10/29/2025
+
+Arrived 2:25 PM
+
+ - Use cross-validation score to assess models
+
+ - Test/train split: ignore dependence for now
+    - Just as a starting point, not ideal though
+    - Data is clustered
+    - test/train split at the subject level may help
+
+- Neural networks can involve history
+    - LSTM
+    -Still do XGBoost for now
+

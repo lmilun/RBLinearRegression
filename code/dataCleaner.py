@@ -13,7 +13,7 @@ eligibleSeasons = eligibleSeasons.sort_values(['Player', 'playerID', 'Season']).
 
 eligibleSeasons.to_csv('data/playerSeasons.csv')
 
-'''
+
 cols = ['playerID', 'Player']
 
 for i in range(20,40):
@@ -32,9 +32,9 @@ for _,a in eligibleSeasons.iterrows():
         yptTimeline.at[a['playerID'], a['Age']] = a['YScm'] / a['Touch']
 
 yptTimeline.to_csv('data/age_vs_YPT.csv')
-'''
 
-cols = ['playerID', 'Player', 'Year', 'Age',
+
+cols = ['playerID', 'Player', 'Year', 'Age', 'nextYpT',
         
         'G', 'possibleG', 'G%', 'rushingAtt', 'rushingYds', 'rushingY/A', 'rushingTD', 'rushingY/G', 'rushing1D', 'rushingSucc', 'rushingSucc%',
         'receivingTgt', 'receivingRec', 'receivingYds', 'receivingY/R', 'receivingTD', 'receivingY/G', 'receivingCtch%', 'receivingY/Tgt', 'receiving1D', 'receivingSucc', 'receivingSucc%',
@@ -62,6 +62,12 @@ for a in range(1,len(eligibleSeasons)):
     for b in new_row.keys():
         if b in ['playerID', 'Player', 'Age']:
             new_row[b] = eligibleSeasons[b][a]
+
+        elif b == 'nextYpT':
+            if eligibleSeasons['Touch'][a] == 0:
+                new_row[b] = 0
+            else:
+                new_row[b] = eligibleSeasons['YScm'][a] / eligibleSeasons['Touch'][a]
 
         elif b == 'Year':
             new_row[b] = eligibleSeasons['Season'][a]
@@ -224,7 +230,8 @@ for a in range(1,len(eligibleSeasons)):
 
     if bad == False:
         this_row = pd.DataFrame([new_row])
-        print('exporting:',new_row['Year'], new_row['playerID'], len(byYear))
         byYear = pd.concat([byYear,this_row], ignore_index = True)
+        if len(byYear) % 100 == 0:
+            print('exporting:',new_row['Year'], new_row['playerID'], len(byYear))
 
 byYear.to_csv('data/statsByYear.csv')
