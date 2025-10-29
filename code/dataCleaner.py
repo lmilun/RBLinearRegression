@@ -38,7 +38,7 @@ cols = ['playerID', 'Player', 'Year', 'Age',
         
         'G', 'possibleG', 'G%', 'rushingAtt', 'rushingYds', 'rushingY/A', 'rushingTD', 'rushingY/G', 'rushing1D', 'rushingSucc', 'rushingSucc%',
         'receivingTgt', 'receivingRec', 'receivingYds', 'receivingY/R', 'receivingTD', 'receivingY/G', 'receivingCtch%', 'receivingY/Tgt', 'receiving1D', 'receivingSucc', 'receivingSucc%',
-        'Touch', 'TotOff', 'YScm', 'APYd', 'RtY', 'YPT',
+        'Touch', 'TotOff', 'YScm', 'APYd', 'RtY', 'YpT',
         
         'G-1', 'G%-1', 'rushingAtt-1', 'rushingYds-1', 'rushingY/A-1', 'rushingTD-1', 'rushingY/G-1', 'rushing1D-1', 'rushingSucc%-1',
         'receivingTgt-1', 'receivingRec-1', 'receivingYds-1', 'receivingY/R-1', 'receivingTD-1', 'receivingY/G-1', 'receivingCtch%-1', 'receivingY/Tgt-1', 'receiving1D-1', 'receivingSucc%-1',
@@ -79,7 +79,10 @@ for a in range(1,len(eligibleSeasons)):
                 new_row[b] = new_row['rushingYds'] / new_row['rushingAtt']
         
         elif b == 'rushingY/G':
-            new_row[b] = new_row['rushingYds'] / new_row['G']
+            if new_row['G'] == 0:
+                print(new_row['Year'], new_row['playerID'])
+            else:
+                new_row[b] = new_row['rushingYds'] / new_row['G']
         
         elif b == 'rushingSucc':
             new_row[b] += eligibleSeasons['rushingSucc%'][a-1] * eligibleSeasons['rushingAtt'][a-1]
@@ -120,7 +123,7 @@ for a in range(1,len(eligibleSeasons)):
             else:
                 new_row[b] = new_row['receivingSucc'] / new_row['receivingTgt']
         
-        elif b == 'YPT':
+        elif b == 'YpT':
             if new_row['Touch'] == 0:
                 new_row[b] == 0
             else:
@@ -161,7 +164,7 @@ for a in range(1,len(eligibleSeasons)):
                     else:
                         new_row[b] = eligibleSeasons['receivingYds'][a-2] / eligibleSeasons['receivingTgt'][a-2]
                 
-                elif b == 'YPT-2':
+                elif b == 'YpT-2':
                     if eligibleSeasons['Touch'][a-2] == 0:
                         new_row[b] == 0
                     else:
@@ -206,19 +209,22 @@ for a in range(1,len(eligibleSeasons)):
                 else:
                     new_row[b] = eligibleSeasons['receivingYds'][a-1] / eligibleSeasons['receivingTgt'][a-1]
             
-            elif b == 'YPT-1':
+            elif b == 'YpT-1':
                 if eligibleSeasons['Touch'][a-1] == 0:
                     new_row[b] == 0
                 else:
                     new_row[b] = eligibleSeasons['YScm'][a-1] / eligibleSeasons['Touch'][a-1]
+
             else:
                 new_row[b] = eligibleSeasons[b[:-2]][a-1]
         
+        else:
+            new_row[b] += eligibleSeasons[b][a-1]
+        
 
     if bad == False:
-        this_row = pd.DataFrame(new_row)
+        this_row = pd.DataFrame([new_row])
         print('exporting:',new_row['Year'], new_row['playerID'], len(byYear))
         byYear = pd.concat([byYear,this_row], ignore_index = True)
-        print(byYear)
 
 byYear.to_csv('data/statsByYear.csv')
