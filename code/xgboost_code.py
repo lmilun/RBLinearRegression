@@ -18,33 +18,34 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, Y, test_size=0.2, random_state=42
 )
 
-count = 0
-
 cols = ['n_estimators','learning_rate', 'max_depth','subsample','colsample_bytree',
         'cv_score1', 'cv_score2', 'cv_score3', 'cv_score4', 'cv_score5',
         'mean_cv_score', 'cv_score_std']
 
 tuning = pd.DataFrame(columns = cols)
+    
+cv = KFold(n_splits = 5, shuffle = True, random_state = 42)
 
 
-for i in range(250):
-    n_estimators= np.random.randint(100,1000)
-    learning_rate=np.random.randint(1,30) / 100
-    max_depth=np.random.randint(3,10)
-    subsample=np.random.randint(50,100) / 100
-    colsample_bytree=np.random.randint(50,100) / 100
+for i in range(500):
+    n_estimators= np.random.randint(100,800)
+    learning_rate=np.random.uniform(0.01,0.3)
+    max_depth=np.random.randint(3,12)
+    subsample=np.random.uniform(0.5,1)
+    colsample_bytree=np.random.uniform(0.5,1)
 
     model = XGBRegressor(
         n_estimators=n_estimators,
-        learning_rate=learning_rate / 100,
+        learning_rate=learning_rate,
         max_depth=max_depth,
-        subsample=subsample / 100,
-        colsample_bytree=colsample_bytree / 100,
+        subsample=subsample,
+        colsample_bytree=colsample_bytree,
         random_state=42,
         tree_method="hist"
     )
 
-    cv = KFold(n_splits = 5, shuffle = True, random_state = 42)
+    model.fit(X_train, y_train, verbose = False)
+    train_score = model.score(X_train, y_train)
 
     cv_scores = cross_val_score(model, X, Y, cv=cv, scoring = None)
 
@@ -60,16 +61,14 @@ for i in range(250):
         'cv_score4': cv_scores[3],
         'cv_score5': cv_scores[4],
         'mean_cv_score': cv_scores.mean(),
-        'cv_score_std': cv_scores.std()
+        'cv_score_std': cv_scores.std(),
+        'train_minus_cv': train_score - cv_scores.mean()
     }
 
     tuning.loc[len(tuning)] = new_row
 
-    count += 1
-
-    if count % 5 == 0:
-        print(f'{count} simulations completed')
-        tuning.to_csv('data/xgBoostTuning.csv', index = False)
+    print(f'{i} simulations completed')
+    tuning.to_csv('data/xgBoostTuning.csv', index = False)
 
 print(tuning)
 
