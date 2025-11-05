@@ -96,3 +96,8 @@ Arrived 2:25 PM
     - LSTM
     -Still do XGBoost for now
 
+## Meeting on 11/5/2025
+
+Arrived 2:22 PM
+
+ - 
