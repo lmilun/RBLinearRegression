@@ -1,8 +1,7 @@
 import pandas as pd
 import numpy as np
-from xgboost import XGBRegressor, plot_importance
+from xgboost import XGBRegressor
 from sklearn.model_selection import train_test_split, cross_val_score, KFold
-import matplotlib.pyplot as plt
 
 
 df = pd.read_csv('data/statsByYear.csv')
@@ -29,11 +28,11 @@ tuning = pd.DataFrame(columns = cols)
 cv = KFold(n_splits = 3, shuffle = True, random_state = 42)
 
 for i in range(500):
-    n_estimators= np.random.randint(50,125)
-    learning_rate=np.random.uniform(0.01,0.0375)
-    max_depth=np.random.randint(2,5)
-    subsample=np.random.uniform(0.5,0.75)
-    colsample_bytree=np.random.uniform(0.5,0.75)
+    n_estimators= np.random.randint(80,90)
+    learning_rate=np.random.uniform(0.04,0.05)
+    max_depth=2
+    subsample=np.random.uniform(0.5275,0.535)
+    colsample_bytree=np.random.uniform(0.6,0.8)
 
     model = XGBRegressor(
         n_estimators=n_estimators,
