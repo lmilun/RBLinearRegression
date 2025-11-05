@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
-from xgboost import XGBRegressor
+from xgboost import XGBRegressor, plot_importance
 from sklearn.model_selection import train_test_split, cross_val_score, KFold
+import matplotlib.pyplot as plt
 
 
 df = pd.read_csv('data/statsByYear.csv')
@@ -32,7 +33,7 @@ for i in range(500):
     learning_rate=np.random.uniform(0.04,0.05)
     max_depth=2
     subsample=np.random.uniform(0.5275,0.535)
-    colsample_bytree=np.random.uniform(0.6,0.8)
+    colsample_bytree=np.random.uniform(0.62,0.72)
 
     model = XGBRegressor(
         n_estimators=n_estimators,
