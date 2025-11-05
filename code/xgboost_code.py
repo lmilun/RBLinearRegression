@@ -19,18 +19,24 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 cols = ['n_estimators','learning_rate', 'max_depth','subsample','colsample_bytree',
-        'cv_score1', 'cv_score2', 'cv_score3', 'cv_score4', 'cv_score5',
-        'mean_cv_score', 'cv_score_std']
+        'cv_score1', 'cv_score2', 'cv_score3',
+        'mean_cv_score', 'cv_score_std', 'train_minus_cv']
 
 tuning = pd.DataFrame(columns = cols)
     
-cv = KFold(n_splits = 5, shuffle = True, random_state = 42)
+cv = KFold(n_splits = 3, shuffle = True, random_state = 42)
+
+print(Y.describe())
+print(np.corrcoef(X['Touch'], Y)[0,1])  # example feature
+
+plt.hist(Y, bins=30)
+Y = np.log1p(Y)
 
 
 for i in range(500):
-    n_estimators= np.random.randint(100,800)
+    n_estimators= np.random.randint(50,400)
     learning_rate=np.random.uniform(0.01,0.3)
-    max_depth=np.random.randint(3,12)
+    max_depth=np.random.randint(2,7)
     subsample=np.random.uniform(0.5,1)
     colsample_bytree=np.random.uniform(0.5,1)
 
@@ -47,7 +53,7 @@ for i in range(500):
     model.fit(X_train, y_train, verbose = False)
     train_score = model.score(X_train, y_train)
 
-    cv_scores = cross_val_score(model, X, Y, cv=cv, scoring = None)
+    cv_scores = cross_val_score(model, X, Y, cv=cv, scoring = 'r2')
 
     new_row = {
         'n_estimators': n_estimators,
@@ -58,8 +64,6 @@ for i in range(500):
         'cv_score1': cv_scores[0],
         'cv_score2': cv_scores[1],
         'cv_score3': cv_scores[2],
-        'cv_score4': cv_scores[3],
-        'cv_score5': cv_scores[4],
         'mean_cv_score': cv_scores.mean(),
         'cv_score_std': cv_scores.std(),
         'train_minus_cv': train_score - cv_scores.mean()
@@ -67,10 +71,18 @@ for i in range(500):
 
     tuning.loc[len(tuning)] = new_row
 
-    print(f'{i} simulations completed')
-    tuning.to_csv('data/xgBoostTuning.csv', index = False)
+    if i % 5 == 0:
+        print(f'{i} simulations completed')
+        tuning.to_csv('data/xgBoostTuning.csv')
+
 
 print(tuning)
+
+plt.scatter(tuning['mean_cv_score'], tuning['train_minus_cv'])
+plt.xlabel('Mean CV R²')
+plt.ylabel('Train - CV gap')
+plt.title('Model Performance vs Overfitting')
+plt.show()
 
 '''
 model.fit(X_train, y_train, eval_set = [(X_test, y_test)], verbose = False)
