@@ -29,11 +29,11 @@ tuning = pd.DataFrame(columns = cols)
 cv = KFold(n_splits = 3, shuffle = True, random_state = 42)
 
 for i in range(500):
-    n_estimators= np.random.randint(50,400)
-    learning_rate=np.random.uniform(0.01,0.3)
-    max_depth=np.random.randint(2,7)
-    subsample=np.random.uniform(0.5,1)
-    colsample_bytree=np.random.uniform(0.5,1)
+    n_estimators= np.random.randint(50,125)
+    learning_rate=np.random.uniform(0.01,0.0375)
+    max_depth=np.random.randint(2,5)
+    subsample=np.random.uniform(0.5,0.75)
+    colsample_bytree=np.random.uniform(0.5,0.75)
 
     model = XGBRegressor(
         n_estimators=n_estimators,
