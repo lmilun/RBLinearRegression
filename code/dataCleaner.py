@@ -64,8 +64,10 @@ for a in range(1,len(eligibleSeasons)):
             new_row[b] = eligibleSeasons[b][a]
 
         elif b == 'nextYpT':
-            if eligibleSeasons['Touch'][a] == 0:
+            if eligibleSeasons['Touch'][a] <= 10:
+                bad = True
                 new_row[b] = 0
+                break
             else:
                 new_row[b] = eligibleSeasons['YScm'][a] / eligibleSeasons['Touch'][a]
 
@@ -136,9 +138,9 @@ for a in range(1,len(eligibleSeasons)):
                 new_row[b] = new_row['YScm'] / new_row['Touch']
 
         elif b[-2:] == '-2':
-            if a >= 2 and eligibleSeasons['playerID'][a-2] == eligibleSeasons['playerID'][a] and eligibleSeasons['Season'][a-2] == int(new_row['Year']) - 2:
+            if a >= 2 and eligibleSeasons['playerID'][a-2] == eligibleSeasons['playerID'][a] and eligibleSeasons['Season'][a-2] == int(new_row['Year']) - 2 and eligibleSeasons['Touch'][a-2] > 10:
                 if b == 'G%-2':
-                    new_row[b] = eligibleSeasons['G'][a-2] / 16 if eligibleSeasons['Season'][a-2] <= 2020 else 17
+                    new_row[b] = eligibleSeasons['G'][a-2] / (16 if eligibleSeasons['Season'][a-2] <= 2020 else 17)
                 
                 elif b == 'rushingY/A-2':
                     if eligibleSeasons['rushingAtt'][a-2] == 0:
@@ -160,19 +162,19 @@ for a in range(1,len(eligibleSeasons)):
                 
                 elif b == 'receivingCtch%-2':
                     if eligibleSeasons['receivingTgt'][a-2] == 0:
-                        new_row[b] == 0
+                        new_row[b] = 0
                     else:
                         new_row[b] = eligibleSeasons['receivingRec'][a-2] / eligibleSeasons['receivingTgt'][a-2]
                 
                 elif b == 'receivingY/Tgt-2':
                     if eligibleSeasons['receivingTgt'][a-2] == 0:
-                        new_row[b] == 0
+                        new_row[b] = 0
                     else:
                         new_row[b] = eligibleSeasons['receivingYds'][a-2] / eligibleSeasons['receivingTgt'][a-2]
                 
                 elif b == 'YpT-2':
                     if eligibleSeasons['Touch'][a-2] == 0:
-                        new_row[b] == 0
+                        new_row[b] = 0
                     else:
                         new_row[b] = eligibleSeasons['YScm'][a-2] / eligibleSeasons['Touch'][a-2]
                 else:
@@ -182,8 +184,12 @@ for a in range(1,len(eligibleSeasons)):
                 break
 
         elif b[-2:] == '-1':
-            if b == 'G%-1':
-                new_row[b] = eligibleSeasons['G'][a-1] / 16 if eligibleSeasons['Season'][a-1] <= 2020 else 17
+            if eligibleSeasons['Touch'][a-1] <= 10:
+                bad = True
+                break
+
+            elif b == 'G%-1':
+                new_row[b] = eligibleSeasons['G'][a-1] / (16 if eligibleSeasons['Season'][a-1] <= 2020 else 17)
             
             elif b == 'rushingY/A-1':
                 if eligibleSeasons['rushingAtt'][a-1] == 0:
@@ -205,19 +211,19 @@ for a in range(1,len(eligibleSeasons)):
             
             elif b == 'receivingCtch%-1':
                 if eligibleSeasons['receivingTgt'][a-1] == 0:
-                    new_row[b] == 0
+                    new_row[b] = 0
                 else:
                     new_row[b] = eligibleSeasons['receivingRec'][a-1] / eligibleSeasons['receivingTgt'][a-1]
             
             elif b == 'receivingY/Tgt-1':
                 if eligibleSeasons['receivingTgt'][a-1] == 0:
-                    new_row[b] == 0
+                    new_row[b] = 0
                 else:
                     new_row[b] = eligibleSeasons['receivingYds'][a-1] / eligibleSeasons['receivingTgt'][a-1]
             
             elif b == 'YpT-1':
                 if eligibleSeasons['Touch'][a-1] == 0:
-                    new_row[b] == 0
+                    new_row[b] = 0
                 else:
                     new_row[b] = eligibleSeasons['YScm'][a-1] / eligibleSeasons['Touch'][a-1]
 
