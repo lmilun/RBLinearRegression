@@ -14,6 +14,8 @@ target = 'nextYpT'
 X = df.drop(columns=[target])
 Y = df[target]
 
+maxMean = [-1,-1000]
+
 X_train, X_test, y_train, y_test = train_test_split(
     X, Y, test_size=0.2, random_state=42
 )
@@ -25,13 +27,6 @@ cols = ['n_estimators','learning_rate', 'max_depth','subsample','colsample_bytre
 tuning = pd.DataFrame(columns = cols)
     
 cv = KFold(n_splits = 3, shuffle = True, random_state = 42)
-
-print(Y.describe())
-print(np.corrcoef(X['Touch'], Y)[0,1])  # example feature
-
-plt.hist(Y, bins=30)
-Y = np.log1p(Y)
-
 
 for i in range(500):
     n_estimators= np.random.randint(50,400)
@@ -71,18 +66,16 @@ for i in range(500):
 
     tuning.loc[len(tuning)] = new_row
 
-    if i % 5 == 0:
-        print(f'{i} simulations completed')
+    if cv_scores.mean() > maxMean[1]:
+        maxMean[0] = i
+        maxMean[1] = cv_scores.mean()
+
+    if i % 10 == 0:
+        print(f'{i} simulations completed. Max mean: {maxMean[0]}, {maxMean[1]}')
         tuning.to_csv('data/xgBoostTuning.csv')
 
 
 print(tuning)
-
-plt.scatter(tuning['mean_cv_score'], tuning['train_minus_cv'])
-plt.xlabel('Mean CV R²')
-plt.ylabel('Train - CV gap')
-plt.title('Model Performance vs Overfitting')
-plt.show()
 
 '''
 model.fit(X_train, y_train, eval_set = [(X_test, y_test)], verbose = False)
