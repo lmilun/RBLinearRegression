@@ -3,6 +3,7 @@ import numpy as np
 from xgboost import XGBRegressor, plot_importance
 from sklearn.model_selection import train_test_split, cross_val_score, KFold
 import matplotlib.pyplot as plt
+import joblib
 
 
 df = pd.read_csv('data/statsByYear.csv')
@@ -14,7 +15,7 @@ target = 'nextYpT'
 X = df.drop(columns=[target])
 Y = df[target]
 
-maxMean = [-1,-1000]
+maxMean = [-1,-1000,0]
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, Y, test_size=0.2, random_state=42
@@ -28,7 +29,7 @@ tuning = pd.DataFrame(columns = cols)
     
 cv = KFold(n_splits = 3, shuffle = True, random_state = 42)
 
-for i in range(500):
+for i in range(10000):
     n_estimators= np.random.randint(80,90)
     learning_rate=np.random.uniform(0.04,0.05)
     max_depth=2
@@ -69,13 +70,20 @@ for i in range(500):
     if cv_scores.mean() > maxMean[1]:
         maxMean[0] = i
         maxMean[1] = cv_scores.mean()
+        maxMean[2] = model
 
-    if i % 10 == 0:
+    if i % 100 == 0:
         print(f'{i} simulations completed. Max mean: {maxMean[0]}, {maxMean[1]}')
         tuning.to_csv('data/xgBoostTuning.csv')
+    
+        if i % 1000 == 0:
+            joblib.dump(maxMean[2], f'data/xgb_best_model_after_{i}.pkl')
+
 
 
 print(tuning)
+
+joblib.dump(maxMean[2], 'data/xgb_best_model.pkl')
 
 '''
 model.fit(X_train, y_train, eval_set = [(X_test, y_test)], verbose = False)
