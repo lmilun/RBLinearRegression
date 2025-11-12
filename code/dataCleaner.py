@@ -1,4 +1,6 @@
 import pandas as pd
+import numpy as np
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 eligiblePlayers = pd.read_csv('data/rawPlayerData.csv')
 allSeasons = pd.read_csv('data/rawSeasonsData.csv')
@@ -237,7 +239,102 @@ for a in range(1,len(eligibleSeasons)):
     if bad == False:
         this_row = pd.DataFrame([new_row])
         byYear = pd.concat([byYear,this_row], ignore_index = True)
-        if len(byYear) % 100 == 0:
+        if len(byYear) % 1000 == 0:
             print('exporting:',new_row['Year'], new_row['playerID'], len(byYear))
 
 byYear.to_csv('data/statsByYear.csv')
+
+
+
+
+#For LSTM:
+features = ['Age', 'G', 'rushingAtt', 'rushingY/A', 'receivingRec', 'receivingY/R', 'RtY', 'YardsPerTouch']
+target = ['nextYpT']
+
+df = eligibleSeasons.copy()
+
+df = df.sort_values(['playerID', 'Season']).reset_index(drop=True)
+
+df['YardsPerTouch'] = 0.0
+mask = (df['Touch'] > 0)
+df.loc[mask, 'YardsPerTouch'] = df.loc[mask, 'YScm'] / df.loc[mask, 'Touch']
+
+df['is_gap'] = (df['Touch'] < 10).astype(int)
+
+df['nextYpT'] = df.groupby('playerID')['YardsPerTouch'].shift(-1)
+
+df = df.dropna(subset=['nextYpT'])
+
+expanded_rows = []
+
+for player, group in df.groupby('playerID'):
+    group = group.sort_values('Season').reset_index(drop=True)
+    expanded_rows.append(group.iloc[0])  # first season always included
+    
+    for i in range(1, len(group)):
+        prev_age = group.iloc[i - 1]['Age']
+        curr_age = group.iloc[i]['Age']
+        age_gap = int(round(curr_age - prev_age))
+        
+        # Insert artificial "gap" seasons if the age jumps by >1
+        if age_gap > 1:
+            for missing_year in range(1, age_gap):
+                gap_row = group.iloc[i - 1].copy()
+                gap_row['Season'] = group.iloc[i - 1]['Season'] + missing_year
+                gap_row['Age'] = prev_age + missing_year
+                gap_row['is_gap'] = 1
+                gap_row[features] = 0.0  # or np.nan if masking
+                gap_row['nextYpT'] = np.nan
+                expanded_rows.append(gap_row)
+        
+        expanded_rows.append(group.iloc[i])
+
+expanded_df = pd.DataFrame(expanded_rows).reset_index(drop=True)
+
+for f in features:
+    expanded_df.loc[expanded_df['is_gap'] == 1, f] = 0.0
+
+expanded_df = expanded_df.dropna(subset=['nextYpT']).reset_index(drop=True)
+
+window_X = []
+window_y = []
+window_ids = []
+
+for player, group in expanded_df.groupby('playerID'):
+    group = group.sort_values('Season').reset_index(drop=True)
+    
+    X_player = group[features + ['is_gap']].values.astype('float32')
+    y_player = group['nextYpT'].values.astype('float32')
+    is_gap = group['is_gap'].values.astype('int')
+    
+    if len(group) < 2:
+        continue
+    
+    for t in range(3, len(group)):
+        # Skip targets corresponding to gap years
+        if is_gap[t] == 1:
+            continue
+        window_X.append(X_player[:t])
+        window_y.append(y_player[t])
+        window_ids.append(player)
+
+# --- Pad sequences ---
+X_padded = pad_sequences(window_X, padding='post', dtype='float32')
+y_array = np.array(window_y, dtype='float32')
+
+print("X shape:", X_padded.shape)
+print("y shape:", y_array.shape)
+
+# --- Save outputs ---
+np.save('data/X_LSTM.npy', X_padded)
+np.save('data/y_LSTM.npy', y_array)
+
+flattened = []
+for pid, Xseq, yval in zip(window_ids, window_X, window_y):
+    flattened.append({
+        'playerID': pid,
+        'seq_length': len(Xseq),
+        'features': Xseq.tolist(),
+        'target_nextYpT': float(yval)
+    })
+pd.DataFrame(flattened).to_csv('data/pre-LSTM.csv', index=False)
