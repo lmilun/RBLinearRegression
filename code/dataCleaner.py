@@ -246,95 +246,74 @@ byYear.to_csv('data/statsByYear.csv')
 
 
 
-
 #For LSTM:
-features = ['Age', 'G', 'rushingAtt', 'rushingY/A', 'receivingRec', 'receivingY/R', 'RtY', 'YardsPerTouch']
-target = ['nextYpT']
+eligibleSeasons = pd.read_csv('data/statsByYear.csv')
 
-df = eligibleSeasons.copy()
+# === Features for totals and rolling averages ===
+sequence_features = [
+    'G','possibleG','G%','rushingAtt','rushingYds','rushingY/A','rushingTD',
+    'rushingY/G','rushing1D','rushingSucc%','receivingTgt','receivingRec','receivingYds',
+    'receivingY/R','receivingTD','receivingY/G','receivingCtch%','receivingY/Tgt',
+    'receiving1D','receivingSucc%','Touch','TotOff','YScm','APYd','RtY'
+]
 
-df = df.sort_values(['playerID', 'Season']).reset_index(drop=True)
+# === Compute YardsPerTouch ===
+eligibleSeasons['YpT'] = 0.0
+mask = eligibleSeasons['Touch'] > 0
+eligibleSeasons.loc[mask, 'YpT'] = eligibleSeasons.loc[mask, 'YScm'] / eligibleSeasons.loc[mask, 'Touch']
 
-df['YardsPerTouch'] = 0.0
-mask = (df['Touch'] > 0)
-df.loc[mask, 'YardsPerTouch'] = df.loc[mask, 'YScm'] / df.loc[mask, 'Touch']
+# === Remove gap years (Touch < 10) ===
+df = eligibleSeasons[eligibleSeasons['Touch'] >= 10].copy()
+df = df.sort_values(['playerID', 'Age']).reset_index(drop=True)
 
-df['is_gap'] = (df['Touch'] < 10).astype(int)
+# === Compute age and age^2 ===
+df['age'] = df['Age']
+df['age2'] = df['Age']**2
 
-df['nextYpT'] = df.groupby('playerID')['YardsPerTouch'].shift(-1)
+# === Career totals and rolling 2-year averages ===
+for feat in sequence_features + ['YpT']:
+    df[f'{feat}_career'] = df.groupby('playerID')[feat].cumsum()
+    df[f'{feat}_rolling2'] = df.groupby('playerID')[feat].rolling(2, min_periods=1).mean().reset_index(level=0, drop=True)
 
-df = df.dropna(subset=['nextYpT'])
+# === Smoothed target: rolling 2-year average of YpT ===
+df['nextYpT_rolling2'] = df.groupby('playerID')['YpT'].shift(-1)
+df['nextYpT_rolling2'] = df.groupby('playerID')['nextYpT_rolling2'].rolling(2, min_periods=1).mean().reset_index(level=0, drop=True)
+df = df.dropna(subset=['nextYpT_rolling2']).reset_index(drop=True)
 
-expanded_rows = []
+# === Construct fixed-length sequences (last 3 seasons) ===
+features = ['age','age2']
+for feat in sequence_features + ['YpT']:
+    features += [f'{feat}_career', f'{feat}_rolling2']
 
-for player, group in df.groupby('playerID'):
-    group = group.sort_values('Season').reset_index(drop=True)
-    expanded_rows.append(group.iloc[0])  # first season always included
-    
-    for i in range(1, len(group)):
-        prev_age = group.iloc[i - 1]['Age']
-        curr_age = group.iloc[i]['Age']
-        age_gap = int(round(curr_age - prev_age))
-        
-        # Insert artificial "gap" seasons if the age jumps by >1
-        if age_gap > 1:
-            for missing_year in range(1, age_gap):
-                gap_row = group.iloc[i - 1].copy()
-                gap_row['Season'] = group.iloc[i - 1]['Season'] + missing_year
-                gap_row['Age'] = prev_age + missing_year
-                gap_row['is_gap'] = 1
-                gap_row[features] = 0.0  # or np.nan if masking
-                gap_row['nextYpT'] = np.nan
-                expanded_rows.append(gap_row)
-        
-        expanded_rows.append(group.iloc[i])
-
-expanded_df = pd.DataFrame(expanded_rows).reset_index(drop=True)
-
-for f in features:
-    expanded_df.loc[expanded_df['is_gap'] == 1, f] = 0.0
-
-expanded_df = expanded_df.dropna(subset=['nextYpT']).reset_index(drop=True)
-
-window_X = []
-window_y = []
+seq_length = 3
+X_sequences = []
+y_values = []
 window_ids = []
 
-for player, group in expanded_df.groupby('playerID'):
-    group = group.sort_values('Season').reset_index(drop=True)
-    
-    X_player = group[features + ['is_gap']].values.astype('float32')
-    y_player = group['nextYpT'].values.astype('float32')
-    is_gap = group['is_gap'].values.astype('int')
+for player, group in df.groupby('playerID'):
+    group = group.sort_values('Age').reset_index(drop=True)
+    X_player = group[features].values.astype('float32')
+    y_player = group['nextYpT_rolling2'].values.astype('float32')
     
     if len(group) < 2:
         continue
     
-    for t in range(3, len(group)):
-        # Skip targets corresponding to gap years
-        if is_gap[t] == 1:
-            continue
-        window_X.append(X_player[:t])
-        window_y.append(y_player[t])
+    # Create sequences of length up to seq_length (last seasons)
+    for t in range(1, len(group)):
+        start_idx = max(0, t - seq_length)
+        X_seq = X_player[start_idx:t]
+        X_sequences.append(X_seq)
+        y_values.append(y_player[t])
         window_ids.append(player)
 
-# --- Pad sequences ---
-X_padded = pad_sequences(window_X, padding='post', dtype='float32')
-y_array = np.array(window_y, dtype='float32')
+# === Pad sequences (short sequences will be padded at the start) ===
+X_padded = pad_sequences(X_sequences, maxlen=seq_length, padding='pre', dtype='float32')
+y_array = np.array(y_values, dtype='float32')
 
 print("X shape:", X_padded.shape)
 print("y shape:", y_array.shape)
 
-# --- Save outputs ---
+# === Save outputs ===
 np.save('data/X_LSTM.npy', X_padded)
 np.save('data/y_LSTM.npy', y_array)
-
-flattened = []
-for pid, Xseq, yval in zip(window_ids, window_X, window_y):
-    flattened.append({
-        'playerID': pid,
-        'seq_length': len(Xseq),
-        'features': Xseq.tolist(),
-        'target_nextYpT': float(yval)
-    })
-pd.DataFrame(flattened).to_csv('data/pre-LSTM.csv', index=False)
+np.save('data/window_ids.npy', np.array(window_ids))
